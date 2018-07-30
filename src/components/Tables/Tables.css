@@ -1,0 +1,18 @@
+.top{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.class_now{
+    display: flex;
+    height:40px;
+}
+
+.class_now_1{
+    display: flex;
+    height:40px;
+    font-weight: 700;
+    width: 100px;
+    align-items: center;
+}

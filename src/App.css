@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body,html{
+  width: 100%;
+}
+.header{
+  width:100%;
+  height:50px;
+  background: black;
+  line-height: 50px;
+  position: fixed;
+  top:0;
+  border:1px solid black;
+}
+.container{
+  width:100%;
+  height:620px;
+  background: #FCFCFC;
+  border:1px solid #e0e0e0;
+}
+.list{
+  width:40px;
+  height: 50px;
+  float:right;
+  margin-left: 10px;
+}
+.list:hover>ul{
+  display: block;
+}
+.header h3{
+  width: 20%;
+  float: left;
+  color:#e0e0e0;
+  margin-left: 5px;
+}
+.header img{
+  width: 20px;
+  height:20px;
+  margin-top: 15px;
+  background-size:100% 100%;
+  float: right;
+  margin-right:10px;
+}
+.content{
+  margin-top:50px;
+  width: 100%;
+  height:570px;
+  overflow: auto;
+}
+ul li{
+  list-style: none;
+}
+.checkBox{
+  width: 15px;
+  float: left;
+  margin-top:10px;
+  margin-left:3px;
+}
+.chanceDelete{
+  margin-top: 20px;
+}
+.chanceDelete button{
+  width: 20%;
+  height: 20px;
+  margin-left: 20px;
+}
+footer{
+  width: 100%;
+  height:50px;
+  line-height: 50px;
+  min-height:50px;
+  position: fixed;
+  border-top:1px solid #e0e0e0;
+  bottom: 0;
+  background: #5C258D;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4389A2, #5C258D);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4389A2, #5C258D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

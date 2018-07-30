@@ -1,0 +1,38 @@
+.box{
+    display: flex;
+    flex-direction: row;
+    width: 1129px;
+    margin-top: 7px;
+    height: 30px;
+    margin-bottom: 7px;
+}
+
+.box_left{
+    display:flex;
+    flex-direction: row;
+    margin-left: 35px;
+}
+
+.box_right{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 0px;
+    margin-left: 684px;
+}
+
+.button_1{
+    display: flex;
+    margin-left: 13px;
+    width: 80px;
+}
+
+.button_2{
+    display: flex;
+    margin-left: 15px;
+    width: 80px;
+    background: gray;
+}
+
+.button_back{
+    width: 80px;
+}
