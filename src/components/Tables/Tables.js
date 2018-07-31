@@ -37,7 +37,7 @@ const columns = {
             console.log("x",myArray)
             if(myArray[0]/myArray[1]<0.8)return<a className="redWord">{text}</a>;
             else if(myArray[0]/myArray[1]>0.95)return<a className="orangeWord">{text}</a>;
-            return <div>{text}</div>
+            return <span>{text}</span>
         },
 
     }, {
@@ -65,10 +65,12 @@ const columns = {
         dataIndex: 'signRate',
         key:'signRate',
         render: text => {
-            console.log(parseFloat(text))
-            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
-            return <div>{text}</div>
+            let myArray=new Array()
+            myArray = text.split("/")
+            console.log("x",myArray)
+            if(myArray[0]/myArray[1]<0.8)return<a className="redWord">{text}</a>;
+            else if(myArray[0]/myArray[1]>0.95)return<a className="orangeWord">{text}</a>;
+            return <span>{text}</span>
         },
     }, {
         title: '满意度',
