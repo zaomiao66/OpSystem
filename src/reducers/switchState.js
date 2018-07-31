@@ -64,7 +64,7 @@ const initState = {
     }]
 };
 
-export default function todoList(state = initState, action) {
+export default function todoList(state = [], action) {
     switch (action.type) {
     case `${ActionTypes.FETCH_LESSON_INFO}_SUC`:{
         const newState=action.data;

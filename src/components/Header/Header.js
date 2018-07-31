@@ -33,7 +33,7 @@ export default class Header extends Component{
                     {/*onClick={this.handelPhone}*/}
                 </div>
                 <div className="infor_item">
-                    <span className="span">在线课程：{state.messageState.learningLesson[0]}</span>
+                    <span className="span">在线课程：{state.messageState.learningLesson}</span>
                     <span className="span">累计登录天数：{state.messageState.totalLearningDays}</span>
                     <span className="span_fu">微信号码:</span>
                     <Input className="input_size"

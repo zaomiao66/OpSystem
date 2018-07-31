@@ -14,7 +14,7 @@ const columns = {
         dataIndex: 'status',
         key:'status',
         render: text => {
-                if(text === 0) return <div>已结束</div>
+                if(text === 0) return <span>已结束</span>
             return <a>进行中</a>
 
         }
