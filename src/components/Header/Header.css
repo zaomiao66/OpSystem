@@ -29,6 +29,7 @@
     height: 30px;
     display: flex;
     flex-direction: row;
+    /*width: 241px;*/
 }
 
 .span{
@@ -44,6 +45,7 @@
 }
 
 .input_size{
+    /*display: inline-block;*/
     height: 23px;
     width: 119px;
 }

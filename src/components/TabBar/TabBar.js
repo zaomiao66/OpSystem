@@ -21,7 +21,7 @@ export default class TabBar extends Component{
                 <Tabs defaultActiveKey="1" onChange={callback}>
                 <TabPane className="tab_1" tab="课程信息" key="1">
                     <div>
-                        <ButtonBox state={state}/>
+                        <ButtonBox />
                         <Tables state={ state }/>
                     </div>
                 </TabPane>

@@ -5,6 +5,7 @@ import rootReducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import './App.css'
+import axios from 'axios'
 
 const logger = createLogger();
 const store = createStore(
@@ -15,6 +16,9 @@ const store = createStore(
 )
 
 class App extends Component {
+
+
+
     render() {
         return (
             <Provider store={store}>

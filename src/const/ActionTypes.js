@@ -1,9 +1,9 @@
-export const ADD_TODO = 'ADD_TODO'
-export const MORE_CHANCE = 'MORE_CHANCE'
-export const ADD_MESSAGE = 'ADD_MESSAGE'
-export const DELETE_MESSAGE = 'DELETE_MESSAGE'
-export const TOP_MESSAGE = 'TOP_MESSAGE'
-export const DELETE_MORE_MESSAGES = 'DELETE_MORE_MESSAGES'
-export const OVER_DELETE = 'OVER_DELETE'
-export const ADD_DELETE_ARRAY = 'ADD_DELETE_ARRAY'
-export const DELETE_ITEM = 'DELETE_ITEM'
+
+export const EDITPHONE = 'EDITPHONE';
+export const EDITWEIXIN ='EDITWEIXIN';
+export const EDITREMARK ='EDITREMARK';
+// export const MID = MID330900002
+export const FETCH_USERS_INFO = 'FETCH_USERS_INFO';
+export const FETCH_LESSON_INFO = 'FETCH_LESSON_INFO';
+
+export const userMID = 'MID330900002';
