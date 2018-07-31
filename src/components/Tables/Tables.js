@@ -14,7 +14,7 @@ const columns = {
         dataIndex: 'status',
         key:'status',
         render: text => {
-                if(text == 0) return <div>已结束</div>
+                if(text === 0) return <div>已结束</div>
             return <a>进行中</a>
 
         }
@@ -46,8 +46,8 @@ const columns = {
         key:'homeworkSubmitRate',
         render: text => {
             console.log(parseFloat(text))
-            if(parseFloat(text)<80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>95)return<a className="orangeWord">{text}</a>;
+            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
+            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
             return <div>{text}</div>
         },
     }, {
@@ -56,8 +56,8 @@ const columns = {
         key:'beCommenttedRate',
         render: text => {
             console.log(parseFloat(text))
-            if(parseFloat(text)<80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>95)return<a className="orangeWord">{text}</a>;
+            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
+            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
             return <div>{text}</div>
         },
     }, {
@@ -66,8 +66,8 @@ const columns = {
         key:'signRate',
         render: text => {
             console.log(parseFloat(text))
-            if(parseFloat(text)<80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>95)return<a className="orangeWord">{text}</a>;
+            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
+            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
             return <div>{text}</div>
         },
     }, {
@@ -76,8 +76,8 @@ const columns = {
         key:'satisfyRate',
         render: text => {
             console.log(parseFloat(text))
-            if(parseFloat(text)<80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>95)return<a className="orangeWord">{text}</a>;
+            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
+            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
             return <div>{text}</div>
         },
 
