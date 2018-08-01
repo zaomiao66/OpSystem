@@ -11,9 +11,9 @@ export default class ButtonBox extends Component{
                     <Button className="button_1">绘画课</Button>
 
                 </div>
-                <div className="box_right">
+                <span className="box_right">
                     <Button className="button_back">返回</Button>
-                </div>
+                </span>
             </div>
         )
     }

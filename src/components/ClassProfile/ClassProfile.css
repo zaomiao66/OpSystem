@@ -1,0 +1,10 @@
+.font{
+    font-size: 14px;
+    font-weight: 700;
+    margin-left: 80px;
+}
+
+.redWord{
+    color:red;
+    font-weight:700;
+}

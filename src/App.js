@@ -5,19 +5,20 @@ import rootReducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createLogger } from 'redux-logger'
 import './App.css'
-import axios from 'axios'
+import serverApi from "./middleware/serverApi";
+
+
+
 
 const logger = createLogger();
 const store = createStore(
     rootReducer,
     compose(
-        applyMiddleware(logger),
+        applyMiddleware(serverApi,logger),
     )
 )
 
 class App extends Component {
-
-
 
     render() {
         return (

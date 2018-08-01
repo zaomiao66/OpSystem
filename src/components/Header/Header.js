@@ -13,7 +13,7 @@ export default class Header extends Component{
 
     render(){
         const { state } = this.props;
-        console.log("state2",state)
+        // console.log("state2",state)
         return(
             <div className="header_1">
             <div className="avatar">

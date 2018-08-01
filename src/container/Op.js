@@ -7,20 +7,41 @@ import TabBar from '../components/TabBar/TabBar'
 // import Tables from '../components/Tables/Tables'
 // import ButtonBox from '../components/ButtonBox/ButtonBox'
 import * as api from '../api';
-import axios from 'axios'
 import {userMID} from "../const/ActionTypes";
 import * as ActionTypes from "../const/ActionTypes";
+import StudentProfile from "../components/StudentProfile/StudentProfile";
+import axios from 'axios'
+import ClassProfile from "../components/ClassProfile/ClassProfile";
+
+
+
 
  class Op extends Component {
 
      componentWillMount() {
 
-         const { dispatch } = this.props;
-         console.log("props",this.props)
-         // Actions.fetchGithubUser(inputVal, dispatch);
-         api.fetchUsersInfo(dispatch);
-         api.fetchLessonInfo(dispatch);
+         const { Actions } = this.props;
+         console.log("props",this.props);
+         // api.fetchUsersInfo(dispatch);
+         // api.fetchLessonInfo(dispatch);
+         Actions.fetchUsersInfo('111');
+         Actions.fetchLessonInfo('111');
+         Actions.getStudentList();
+         Actions.getClassInfo('111');
 
+         axios({
+             method:'POST',
+             url:'http://xly-wkop.xiaoniangao.cn/getClassInfo',
+             data:{'id':'330900002'},
+             headers:{'Content-Type':'application/x-www-form-urlencoded'}
+         }).then(res =>{
+             console.log("res11",res);
+
+             // console.log("data",this.state)
+         }).catch(err => {
+             console.log("err",err);
+
+         })
 
 
      }
@@ -34,6 +55,8 @@ import * as ActionTypes from "../const/ActionTypes";
                 <TabBar state={this.props}/>
                 {/*<ButtonBox/>*/}
                 {/*<Tables/>*/}
+                <StudentProfile state={this.props}/>
+                <ClassProfile state={this.props}/>
             </div>
         )
     }
@@ -43,14 +66,15 @@ import * as ActionTypes from "../const/ActionTypes";
 
 
 function mapStateToProps(state, ownProps) {
-    const { messageState, switchState } = state;
-    return { messageState, switchState };
+    // console.log("statestate",state)
+    const { messageState, switchState,studentList,classInfo } = state;
+    return { messageState, switchState,studentList,classInfo };
 }
 
 function mapDispatchToProps(dispatch) {
     return{
-            // actions:bindActionCreators(actionCreators,dispatch)
-        dispatch
+            Actions:bindActionCreators(actionCreators,dispatch)
+        // dispatch
     }
 }
 

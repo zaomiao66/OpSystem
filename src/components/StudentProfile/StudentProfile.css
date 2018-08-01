@@ -1,0 +1,53 @@
+.box{
+    display: flex;
+    flex-direction: row;
+    width: 1129px;
+    margin-top: 7px;
+    height: 30px;
+    margin-bottom: 7px;
+}
+
+.box_left{
+    display:flex;
+    flex-direction: row;
+    margin-left: 35px;
+}
+
+.box_right{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 0px;
+    margin-left: 500px;
+}
+
+.button_1{
+    display: flex;
+    margin-left: 13px;
+    width: 80px;
+}
+
+.button_2{
+    display: flex;
+    margin-left: 15px;
+    width: 80px;
+    background: gray;
+}
+
+.button_back{
+    width: 80px;
+}
+
+.button{
+    display: flex;
+    height: 25px;
+    width: 35px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.pic{
+    height: 42px;
+    width: 55px;
+    margin-left: 30px;
+}

@@ -16,3 +16,12 @@
     width: 100px;
     align-items: center;
 }
+
+.redWord{
+    color:red;
+    font-weight:700;
+}
+.orangeWord{
+    color: orange;
+    font-weight:700;
+}
