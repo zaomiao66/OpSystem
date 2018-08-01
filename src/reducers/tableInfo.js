@@ -7,7 +7,7 @@ import './tableInfo.css'
 export default function todoList(state = [], action) {
     switch (action.type) {
     case `${ActionTypes.FETCH_LESSON_INFO}_SUC`:{
-        const newState=action.data;
+        const newState=action.data.data;
         console.log("table",newState)
         return newState;
     }

@@ -48,14 +48,14 @@ import ClassProfile from "../components/ClassProfile/ClassProfile";
 
 
     render() {
-        const { actions,state } = this.props
+        const { Actions,state } = this.props
         return (
             <div className="Op">
-                <Header actions={actions} state={this.props}/>
+                <Header actions={Actions} state={this.props}/>
                 <TabBar state={this.props}/>
                 {/*<ButtonBox/>*/}
                 {/*<Tables/>*/}
-                <StudentProfile state={this.props}/>
+                <StudentProfile state={this.props} actions={Actions}/>
                 <ClassProfile state={this.props}/>
             </div>
         )

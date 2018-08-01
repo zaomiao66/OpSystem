@@ -9,7 +9,7 @@ export default function classInfo(state = {
 }, action) {
     switch (action.type) {
         case `${ActionTypes.GET_CLASS_INFO}_SUC`:{
-            const newState=action.data;
+            const newState=action.data.data;
             // console.log("studentList",newState)
             return newState;
         }

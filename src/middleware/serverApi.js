@@ -48,7 +48,7 @@ export default store => next => action => {
         .then(res => {
             next({
                 type: `${type}_SUC`,
-                data:res.data.data,
+                data:res.data,
             });
         }).catch(err => {
             next({

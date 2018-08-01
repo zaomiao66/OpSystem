@@ -1,7 +1,7 @@
 import { Button,Input,Table } from 'antd'
 import React,{ Component } from 'react'
 import './StudentProfile.css'
-import {midSearch} from  '../../actions'
+// import {midSearch} from  '../../actions'
 
 const Search = Input.Search;
 
@@ -46,9 +46,30 @@ const columns = {
 // }
 
 
+
 export default class StudentProfile extends Component{
+
+    filterTable=()=>{
+        const { state } = this.props;
+        if(!state.studentList.isSeached){
+            return <Table
+                columns={columns.columns}
+                dataSource={state.studentList.studentList}
+
+            />
+        }else{
+            return <Table
+                columns={columns.columns}
+                dataSource={state.studentList.filterList}
+
+            />
+        }
+    }
+
+
     render(){
         const { state } = this.props;
+        // const { actions } = this.props;
         console.log("state.studentList21212",state)
         return(
             <div>
@@ -62,17 +83,16 @@ export default class StudentProfile extends Component{
                 <div className="box_right">
                     <Search
                         placeholder="input search text"
-                        onSearch={value => midSearch(value)}
+                        onSearch={value => this.props.actions.midSearch(value)}
                         style={{ width: 200 }}
                     />
                     {/*<Input  addonAfter={<Button>提交</Button>} type='text'/>*/}
                     {/*<Button  className="button">提交</Button>*/}
                 </div>
             </div>
-                <div> <Table
-                    columns={columns.columns}
-                    dataSource={ state.studentList }
-                /> </div>
+                <div> {
+                        this.filterTable()
+                } </div>
             </div>
         )
     }

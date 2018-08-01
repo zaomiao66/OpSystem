@@ -6,7 +6,7 @@ export default function menu(state = {  }, action){
     switch(action.type){
 
         case `${ActionTypes.FETCH_USERS_INFO}_SUC`:{
-            const _state = action.data;
+            const _state = action.data.data;
 
             return _state;
         }
