@@ -1,7 +1,7 @@
 
 import * as ActionTypes from '../const/ActionTypes';
 import React from 'react'
-import './switchState.css'
+import './tableInfo.css'
 
 
 export default function todoList(state = [], action) {

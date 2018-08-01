@@ -2,6 +2,21 @@ import { Table } from 'antd';
 import React,{ Component } from 'react'
 import './Tables.css'
 
+
+function color_render(text,type){
+        if(type === "float"){
+            if(text<0.80)return<span className="redWord">{text}</span>;
+            else if(text>0.95)return<span className="orangeWord">{text}</span>;
+            return <span>{text}</span>
+        }
+        if(type === "fraction"){
+            const myArray=text.split("/")
+            if(myArray[0]/myArray[1]<0.8)return<span className="redWord">{text}</span>;
+            else if(myArray[0]/myArray[1]>0.95)return<span className="orangeWord">{text}</span>;
+            return <span>{text}</span>
+        }
+}
+
 const columns = {
 
     columns : [{
@@ -31,57 +46,28 @@ const columns = {
         title: '上课率',
         dataIndex: 'enterRate',
         key:'enterRate',
-        render: text => {
-            let myArray=new Array()
-            myArray = text.split("/")
-            console.log("x",myArray)
-            if(myArray[0]/myArray[1]<0.8)return<a className="redWord">{text}</a>;
-            else if(myArray[0]/myArray[1]>0.95)return<a className="orangeWord">{text}</a>;
-            return <span>{text}</span>
-        },
+        render: text => color_render(text, "fraction")
 
     }, {
         title: '作业提交率',
         dataIndex: 'homeworkSubmitRate',
         key:'homeworkSubmitRate',
-        render: text => {
-            console.log(parseFloat(text))
-            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
-            return <div>{text}</div>
-        },
+        render: text => color_render(text, "float"),
     }, {
         title: '被点评情况',
         dataIndex: 'beCommenttedRate',
         key:'beCommenttedRate',
-        render: text => {
-            console.log(parseFloat(text))
-            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
-            return <div>{text}</div>
-        },
+        render: text => color_render(text, "float"),
     }, {
         title: '打卡率',
         dataIndex: 'signRate',
         key:'signRate',
-        render: text => {
-            let myArray=new Array()
-            myArray = text.split("/")
-            console.log("x",myArray)
-            if(myArray[0]/myArray[1]<0.8)return<a className="redWord">{text}</a>;
-            else if(myArray[0]/myArray[1]>0.95)return<a className="orangeWord">{text}</a>;
-            return <span>{text}</span>
-        },
+        render: text => color_render(text, "fraction"),
     }, {
         title: '满意度',
         dataIndex: 'satisfyRate',
         key:'satisfyRate',
-        render: text => {
-            console.log(parseFloat(text))
-            if(parseFloat(text)<0.80)return<a className="redWord">{text}</a>;
-            else if(parseFloat(text)>0.95)return<a className="orangeWord">{text}</a>;
-            return <div>{text}</div>
-        },
+        render: text => color_render(text, "float"),
 
     }]}
 

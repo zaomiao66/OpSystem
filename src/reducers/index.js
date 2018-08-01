@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import messageState from './messageState';
-import switchState from './switchState';
+import messageState from './userInfo';
+import switchState from './tableInfo';
 
 export default combineReducers({
     messageState,
