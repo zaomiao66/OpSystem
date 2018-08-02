@@ -61,7 +61,18 @@ function getClassInfo(id){
     }
 }
 
+function getSatisfiledList(mid){
+    return{
+        SERVER_API:{
+            type:ActionTypes.GET_SATISFILED_LIST,
+            endpoint:'/getSatisfiledList',
+            params:{
+                mid
+            }
 
+        }
+    }
+}
 
 function midSearch(value) {
     return{
@@ -69,7 +80,19 @@ function midSearch(value) {
         value:value,
     }
 }
+function openModal() {
+    return{
+        type:ActionTypes.OPEN_MODAL,
+        isOpen:true
+    }
+}
 
+function closeModal() {
+    return{
+        type:ActionTypes.CLOSE_MODAL,
+        isOpen:false
+    }
+}
 
 function editPhone(data) {
     return{
@@ -97,5 +120,8 @@ export {
     fetchLessonInfo,
     getStudentList,
     getClassInfo,
-    midSearch
+    midSearch,
+    getSatisfiledList,
+    openModal,
+    closeModal
 }

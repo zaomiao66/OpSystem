@@ -1,5 +1,6 @@
-import { Table } from 'antd';
-import React,{ Component } from 'react'
+import { Table,Icon,Popover } from 'antd';
+import React,{ Component } from 'react';
+import { Link } from 'react-router'
 import './Tables.css'
 
 
@@ -23,14 +24,14 @@ const columns = {
         title: '班级',
         dataIndex: 'classInfo.name',
         key:'classInfo.name',
-        // render: text => <a href="javascript:;">{text}</a>,
+        render: text => <Link  to="/classInfo">{text}</Link>,
     }, {
         title: '课程状态',
         dataIndex: 'status',
         key:'status',
         render: text => {
                 if(text === 0) return <span>已结束</span>
-            return <a>进行中</a>
+            return <span>进行中</span>
 
         }
     }, {
@@ -41,7 +42,20 @@ const columns = {
     }, {
         title: '老师',
         dataIndex: 'teacherInfo.nick',
-        key:'teacherInfo.nick'
+        key:'teacherInfo.nick',
+        render: (text,record) => <div>{console.log("zheli",record)}<Popover placement="top"
+                                               content={<div>
+                                                   <div> <span>老师账号:{record.teacherInfo.nick}</span>
+                                                       <span>ID:{record.teacherInfo.id}</span>
+                                                       <span>微信：{record.teacherInfo.wxCode}</span>
+                                                   </div>
+                                                    <div><span>对应员工：{record.teacherInfo.real_name}</span>
+                                                       <span>ID：{record.teacherInfo.mid}</span>
+                                                       <span>微信：{record.teacherInfo.wxCode}</span>
+                                                   </div>
+                                               </div>} trigger="click"><Icon type="user" /> {text}
+         </Popover>
+        </div>
     }, {
         title: '上课率',
         dataIndex: 'enterRate',
@@ -75,7 +89,7 @@ const columns = {
 export default class Tables extends Component{
     render(){
         const { state } = this.props;
-        console.log("state15",state)
+        // console.log("state15",state)
         return(
             <div>
                 <div className="class_now">

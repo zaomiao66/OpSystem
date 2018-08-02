@@ -11,6 +11,10 @@ export const GET_CLASS_INFO = 'GET_CLASS_INFO';
 
 export const userMID = 'MID330900002';
 
-
-
 export const MID_SEARCH = 'MID_SEARCH';
+export const GET_SATISFILED_LIST = 'GET_SATISFILED_LIST';
+
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+

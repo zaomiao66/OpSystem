@@ -1,5 +1,6 @@
 import { Button,Input,Table } from 'antd'
 import React,{ Component } from 'react'
+import { Link } from 'react-router'
 import './StudentProfile.css'
 // import {midSearch} from  '../../actions'
 
@@ -16,6 +17,7 @@ const columns = {
         title: '学员名',
         dataIndex: 'nick',
         key:'nick',
+        render: text => <Link  to="/Op">{text}</Link>
     }, {
         title: '学员编号/MID',
         dataIndex: 'mid',
@@ -51,6 +53,8 @@ export default class StudentProfile extends Component{
 
     filterTable=()=>{
         const { state } = this.props;
+        console.log("SSTATE",state.studentList)
+        console.log("SSTATE2",state.studentList.studentList)
         if(!state.studentList.isSeached){
             return <Table
                 columns={columns.columns}
@@ -86,8 +90,6 @@ export default class StudentProfile extends Component{
                         onSearch={value => this.props.actions.midSearch(value)}
                         style={{ width: 200 }}
                     />
-                    {/*<Input  addonAfter={<Button>提交</Button>} type='text'/>*/}
-                    {/*<Button  className="button">提交</Button>*/}
                 </div>
             </div>
                 <div> {

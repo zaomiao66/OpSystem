@@ -2,7 +2,10 @@ import { Button } from 'antd'
 import React,{ Component } from 'react'
 import './ButtonBox.css'
 export default class ButtonBox extends Component{
+
+
     render(){
+        const { back } = this.props;
         return(
             <div className="box">
                 <div className="box_left">
@@ -12,7 +15,7 @@ export default class ButtonBox extends Component{
 
                 </div>
                 <span className="box_right">
-                    <Button className="button_back">返回</Button>
+                    <Button className="button_back" onClick={back}>返回</Button>
                 </span>
             </div>
         )

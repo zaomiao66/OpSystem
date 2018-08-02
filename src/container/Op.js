@@ -12,6 +12,7 @@ import * as ActionTypes from "../const/ActionTypes";
 import StudentProfile from "../components/StudentProfile/StudentProfile";
 import axios from 'axios'
 import ClassProfile from "../components/ClassProfile/ClassProfile";
+import satisfiledList from "../reducers/satisfiledList";
 
 
 
@@ -28,6 +29,7 @@ import ClassProfile from "../components/ClassProfile/ClassProfile";
          Actions.fetchLessonInfo('111');
          Actions.getStudentList();
          Actions.getClassInfo('111');
+         Actions.getSatisfiledList('111')
 
          axios({
              method:'POST',
@@ -52,11 +54,11 @@ import ClassProfile from "../components/ClassProfile/ClassProfile";
         return (
             <div className="Op">
                 <Header actions={Actions} state={this.props}/>
-                <TabBar state={this.props}/>
+                <TabBar state={this.props} actions={Actions} />
                 {/*<ButtonBox/>*/}
                 {/*<Tables/>*/}
-                <StudentProfile state={this.props} actions={Actions}/>
-                <ClassProfile state={this.props}/>
+                {/*<StudentProfile state={this.props} actions={Actions}/>*/}
+                {/*<ClassProfile state={this.props}/>*/}
             </div>
         )
     }
@@ -67,8 +69,8 @@ import ClassProfile from "../components/ClassProfile/ClassProfile";
 
 function mapStateToProps(state, ownProps) {
     // console.log("statestate",state)
-    const { messageState, switchState,studentList,classInfo } = state;
-    return { messageState, switchState,studentList,classInfo };
+    const { messageState, switchState,studentList,classInfo,satisfiledList,isOpen } = state;
+    return { messageState, switchState,studentList,classInfo,satisfiledList,isOpen };
 }
 
 function mapDispatchToProps(dispatch) {
