@@ -22,6 +22,7 @@ class StudentList extends Component {
 
         const { Actions } = this.props;
         console.log("props",this.props);
+
         // api.fetchUsersInfo(dispatch);
         // api.fetchLessonInfo(dispatch);
         Actions.fetchUsersInfo('111');
