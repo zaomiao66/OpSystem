@@ -1,7 +1,7 @@
 一，本周学习内容
 1.周一 
 熟悉了 redux的数据流程  ：
-初始数据从reducer的初始数据在createrStore中，通过Provider渲染页面，通过mapStateToProps把数据传到props,从this.props中取出数据
+初始数据从reducer到createrStore中，通过Provider渲染页面，通过mapStateToProps把数据传到props,从this.props中取出数据
 
 2周二 
 
