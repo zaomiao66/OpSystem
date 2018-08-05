@@ -5,12 +5,12 @@ const initState = {
     studentList:[],
     filterList:[],
     isSeached:false
-}
+};
 
 export default function studentList(state = initState, action) {
     switch (action.type) {
         case `${ActionTypes.GET_STUDENT_LIST}_SUC`:{
-            const newState = state;
+            const newState = { ...state };
                 newState.studentList=action.data.data;
              console.log("studentList",newState)
             return newState;

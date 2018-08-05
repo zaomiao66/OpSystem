@@ -57,12 +57,12 @@ export default class ClassProfile extends Component {
     render() {
         const {state} = this.props;
         const {basic_info,list} = state.classInfo;
-
-        console.log("state.classList111111",list)
+        const mid = state.params.mid;
+        console.log("state.classList111111",state)
         return (
             <div>
                 <div>
-                    <span className="font">班级:{basic_info.name}</span><span className="font"> 班级ID：{basic_info.id}  </span>
+                    <span className="font">班级:{basic_info.name}</span><span className="font"> 班级ID：{mid}  </span>
                     <span className="font">老师：{basic_info.real_teacher.name} ID：{basic_info.real_teacher.mid} 微信：{basic_info.real_teacher.wx_code}</span>
                     <span className="font">负责员工：{basic_info.virtual_teacher.nick}ID：{basic_info.virtual_teacher.id} 微信：{basic_info.virtual_teacher.wx_code}</span>
                 </div>

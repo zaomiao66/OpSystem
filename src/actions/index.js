@@ -1,7 +1,6 @@
-import * as actionTypes from "../const/ActionTypes";
-import {EDITPHONE} from "../const/ActionTypes";
-import {EDITREMARK} from "../const/ActionTypes";
-import {EDITWEIXIN} from "../const/ActionTypes";
+// import {EDITPHONE} from "../const/ActionTypes";
+// import {EDITREMARK} from "../const/ActionTypes";
+// import {EDITWEIXIN} from "../const/ActionTypes";
 // import serverApi from "../middleware/serverApi";
 import * as ActionTypes from "../const/ActionTypes"
 import {MID_INPUT} from "../const/ActionTypes";
@@ -80,39 +79,12 @@ function midSearch(value) {
         value:value,
     }
 }
-function openModal() {
-    return{
-        type:ActionTypes.OPEN_MODAL,
-        isOpen:true
-    }
-}
 
-function closeModal() {
-    return{
-        type:ActionTypes.CLOSE_MODAL,
-        isOpen:false
-    }
-}
-
-function editPhone(data) {
-    return{
-        type:EDITPHONE,
-        data
-    }
-}
-
-function editRemark(data) {
-    return{
-        type:EDITREMARK,
-        data
-    }
-}
-
-function editWeixin(data) {
-    return{
-        type:EDITWEIXIN,
-        data
-    }
+function changReplyStatus(classId){
+     return{
+         type:ActionTypes.CHANGE_REPLY_STATUS,
+         classId
+     }
 }
 
 export {
@@ -122,6 +94,5 @@ export {
     getClassInfo,
     midSearch,
     getSatisfiledList,
-    openModal,
-    closeModal
+    changReplyStatus,
 }

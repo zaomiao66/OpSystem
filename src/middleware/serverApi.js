@@ -1,5 +1,4 @@
 import axios from 'axios'
-import * as ActionTypes from "../const/ActionTypes";
 
 const API_DOMAIN = 'http://xly-wkop.xiaoniangao.cn';
 

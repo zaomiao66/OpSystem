@@ -1,18 +1,17 @@
 import { combineReducers } from 'redux';
-import messageState from './userInfo';
-import switchState from './tableInfo';
+import userInfo from './userInfo';
+import lessonInfo from './lessfonInfo';
 import studentList from './studentList'
 import classInfo from './classInfo';
 import satisfiledList from './satisfiledList'
-import isOpen from './isOpen'
+
 // import midSearch from './midSearch'
 export default combineReducers({
-    messageState,
-    switchState,
+    userInfo,
+    lessonInfo,
     studentList,
     classInfo,
     satisfiledList,
-    isOpen
     // midSearch
 });
 

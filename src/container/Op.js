@@ -6,13 +6,7 @@ import Header from '../components/Header/Header'
 import TabBar from '../components/TabBar/TabBar'
 // import Tables from '../components/Tables/Tables'
 // import ButtonBox from '../components/ButtonBox/ButtonBox'
-import * as api from '../api';
-import {userMID} from "../const/ActionTypes";
-import * as ActionTypes from "../const/ActionTypes";
-import StudentProfile from "../components/StudentProfile/StudentProfile";
-import axios from 'axios'
-import ClassProfile from "../components/ClassProfile/ClassProfile";
-import satisfiledList from "../reducers/satisfiledList";
+
 
 
 
@@ -22,30 +16,11 @@ import satisfiledList from "../reducers/satisfiledList";
      componentWillMount() {
 
          const { Actions } = this.props;
+         const mid = this.props.params.mid
          console.log("props",this.props);
-         // api.fetchUsersInfo(dispatch);
-         // api.fetchLessonInfo(dispatch);
-         Actions.fetchUsersInfo('111');
-         Actions.fetchLessonInfo('111');
-         Actions.getStudentList();
-         Actions.getClassInfo('111');
-         Actions.getSatisfiledList('111')
-
-         axios({
-             method:'POST',
-             url:'http://xly-wkop.xiaoniangao.cn/getClassInfo',
-             data:{'id':'330900002'},
-             headers:{'Content-Type':'application/x-www-form-urlencoded'}
-         }).then(res =>{
-             console.log("res11",res);
-
-             // console.log("data",this.state)
-         }).catch(err => {
-             console.log("err",err);
-
-         })
-
-
+         Actions.fetchUsersInfo(mid);
+         Actions.fetchLessonInfo(mid);
+         Actions.getSatisfiledList(mid)
      }
 
 
@@ -55,10 +30,6 @@ import satisfiledList from "../reducers/satisfiledList";
             <div className="Op">
                 <Header actions={Actions} state={this.props}/>
                 <TabBar state={this.props} actions={Actions} />
-                {/*<ButtonBox/>*/}
-                {/*<Tables/>*/}
-                {/*<StudentProfile state={this.props} actions={Actions}/>*/}
-                {/*<ClassProfile state={this.props}/>*/}
             </div>
         )
     }
@@ -69,8 +40,8 @@ import satisfiledList from "../reducers/satisfiledList";
 
 function mapStateToProps(state, ownProps) {
     // console.log("statestate",state)
-    const { messageState, switchState,studentList,classInfo,satisfiledList,isOpen } = state;
-    return { messageState, switchState,studentList,classInfo,satisfiledList,isOpen };
+    const { userInfo, lessonInfo,satisfiledList } = state;
+    return { userInfo, lessonInfo,satisfiledList };
 }
 
 function mapDispatchToProps(dispatch) {

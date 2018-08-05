@@ -24,7 +24,7 @@ const columns = {
         title: '班级',
         dataIndex: 'classInfo.name',
         key:'classInfo.name',
-        render: text => <Link  to="/classInfo">{text}</Link>,
+        render: (text,record) => <Link  to={`/classInfo/${record.id}`}>{text}</Link>,
     }, {
         title: '课程状态',
         dataIndex: 'status',
@@ -99,7 +99,7 @@ export default class Tables extends Component{
                 </div>
                 <Table
                     columns={columns.columns}
-                    dataSource={state.switchState.currentLessonsList}
+                    dataSource={state.lessonInfo.currentLessonsList}
                     bordered
                 />
                 <div className="class_now_1">
@@ -107,7 +107,7 @@ export default class Tables extends Component{
                 </div>
                 <Table
                     columns={columns.columns}
-                    dataSource={state.switchState.historyLessonsList}
+                    dataSource={state.lessonInfo.historyLessonsList}
                     bordered
                 />
             </div>

@@ -12,12 +12,12 @@ const columns = {
         title: ' ',
         dataIndex: 'hurl',
         key:'hurl',
-        render: text => <img className="pic" src={ text}/>,
+        render: text => <img className="pic" src={text}/>,
     }, {
         title: '学员名',
         dataIndex: 'nick',
         key:'nick',
-        render: text => <Link  to="/Op">{text}</Link>
+        render: (text,record) => <Link to={`/Op/${record.mid}`}>{text}</Link>
     }, {
         title: '学员编号/MID',
         dataIndex: 'mid',
@@ -40,41 +40,32 @@ const columns = {
         title: '负责老师',
         dataIndex: 'teachers',
         key:'teachers',
-    }]}
-
-// function isRealSearch(value) {
-//      if(data == "" || data == undefined || data == null) return -1;
-//      return value;
-// }
+    }]};
 
 
 
 export default class StudentProfile extends Component{
 
     filterTable=()=>{
-        const { state } = this.props;
-        console.log("SSTATE",state.studentList)
-        console.log("SSTATE2",state.studentList.studentList)
-        if(!state.studentList.isSeached){
+        const{ state }= this.props;
+        // console.log("SSTATE2",this.props.state)
+        if(!state.isSeached){
             return <Table
                 columns={columns.columns}
-                dataSource={state.studentList.studentList}
-
+                dataSource={state.studentList}
             />
         }else{
             return <Table
                 columns={columns.columns}
-                dataSource={state.studentList.filterList}
-
+                dataSource={state.filterList}
             />
         }
     }
 
 
     render(){
-        const { state } = this.props;
-        // const { actions } = this.props;
-        console.log("state.studentList21212",state)
+        const { actions } = this.props;
+        // console.log("state.studentList21212",state)
         return(
             <div>
             <div className="box">
@@ -87,7 +78,7 @@ export default class StudentProfile extends Component{
                 <div className="box_right">
                     <Search
                         placeholder="input search text"
-                        onSearch={value => this.props.actions.midSearch(value)}
+                        onSearch={value => actions.midSearch(value)}
                         style={{ width: 200 }}
                     />
                 </div>
