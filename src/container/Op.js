@@ -4,6 +4,8 @@ import { bindActionCreators} from 'redux';
 import * as actionCreators from '../actions'
 import Header from '../components/Header/Header'
 import TabBar from '../components/TabBar/TabBar'
+import satisfiedEntities from "../reducers/satisfiedEntities";
+import lessonInfoEntities from "../reducers/lessonInfoEntities";
 // import Tables from '../components/Tables/Tables'
 // import ButtonBox from '../components/ButtonBox/ButtonBox'
 
@@ -39,9 +41,9 @@ import TabBar from '../components/TabBar/TabBar'
 
 
 function mapStateToProps(state, ownProps) {
-    // console.log("statestate",state)
-    const { userInfo, lessonInfo,satisfiledList } = state;
-    return { userInfo, lessonInfo,satisfiledList };
+     console.log("statestate",state)
+    const { userInfo, lessonInfoEntities,satisfiedEntities } = state;
+    return { userInfo, lessonInfoEntities,satisfiedEntities };
 }
 
 function mapDispatchToProps(dispatch) {

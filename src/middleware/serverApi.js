@@ -40,14 +40,18 @@ export default store => next => action => {
     // if (typeof params !== 'object') {
     //     throw new Error('params should be a object');
     // }
+    // console.log("action.SERVER_API",action)
+    const { normailzerFun } = action.SERVER_API;
     next({
         type: `${type}_REQ`
     });
-    return callServerApi(endpoint, params)
+    return callServerApi(endpoint, params,normailzerFun)
         .then(res => {
+            console.log("res.data",res.data);
+            const response = typeof (normailzerFun) !== 'undefined' ? normailzerFun(res.data) : res.data;
             next({
                 type: `${type}_SUC`,
-                data:res.data,
+                data:response,
             });
         }).catch(err => {
             next({

@@ -5,6 +5,8 @@
 import * as ActionTypes from "../const/ActionTypes"
 import {MID_INPUT} from "../const/ActionTypes";
 import {MID_SEARCH} from "../const/ActionTypes";
+import { normalize } from 'normalizr'
+import * as schemes from '../schema/index'
 
 
 
@@ -29,8 +31,14 @@ import {MID_SEARCH} from "../const/ActionTypes";
             endpoint:'/getLessonInfo',
             params:{
                 mid
+            },
+            normailzerFun:response=> {
+                console.log("xxxx",response)
+                return {
+                    current: normalize(response.data.currentLessonsList, schemes.LESSONLIST),
+                    history: normalize(response.data.historyLessonsList, schemes.LESSONLIST)
+                }
             }
-
         }
     }
 }
@@ -54,7 +62,7 @@ function getClassInfo(id){
             endpoint:'/getClassInfo',
             params:{
                 id
-            }
+            },
 
         }
     }
@@ -67,8 +75,10 @@ function getSatisfiledList(mid){
             endpoint:'/getSatisfiledList',
             params:{
                 mid
+            },
+            normailzerFun:response=> {
+                return normalize(response.data.list, schemes.SATISFILEDLIST)
             }
-
         }
     }
 }
@@ -80,11 +90,12 @@ function midSearch(value) {
     }
 }
 
-function changReplyStatus(classId){
-     return{
-         type:ActionTypes.CHANGE_REPLY_STATUS,
-         classId
-     }
+function changReplyStatus(params){
+    const { mid, time, lessonIndex } = params
+    return {
+        type: ActionTypes.CHANGE_REPLY_STATUS,
+        params: { mid, lessonIndex, time }
+    }
 }
 
 export {

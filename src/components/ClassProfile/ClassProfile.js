@@ -58,7 +58,7 @@ export default class ClassProfile extends Component {
         const {state} = this.props;
         const {basic_info,list} = state.classInfo;
         const mid = state.params.mid;
-        console.log("state.classList111111",state)
+        // console.log("state.classList111111",state)
         return (
             <div>
                 <div>

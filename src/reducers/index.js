@@ -3,15 +3,19 @@ import userInfo from './userInfo';
 import lessonInfo from './lessfonInfo';
 import studentList from './studentList'
 import classInfo from './classInfo';
-import satisfiledList from './satisfiledList'
+// import satisfiledList from './satisfiledList'
+import satisfiedEntities from './satisfiedEntities'
+import lessonInfoEntities from './lessonInfoEntities'
 
 // import midSearch from './midSearch'
 export default combineReducers({
     userInfo,
-    lessonInfo,
+    // lessonInfo,
     studentList,
     classInfo,
-    satisfiledList,
+    // satisfiledList,
+    satisfiedEntities,
+    lessonInfoEntities
     // midSearch
 });
 

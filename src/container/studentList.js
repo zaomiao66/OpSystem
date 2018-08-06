@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators} from 'redux';
 import * as actionCreators from '../actions'
 import StudentProfile from "../components/StudentProfile/StudentProfile";
+import axios from 'axios'
 
 
 
@@ -17,19 +18,19 @@ class StudentList extends Component {
         Actions.getStudentList();
 
 //axios 测试接口用
-        // axios({
-        //     method:'POST',
-        //     url:'http://xly-wkop.xiaoniangao.cn/getSatisfiledList',
-        //     data:{'mid':'330900002'},
-        //     headers:{'Content-Type':'application/x-www-form-urlencoded'}
-        // }).then(res =>{
-        //     console.log("接口",res);
-        //
-        //     // console.log("data",this.state)
-        // }).catch(err => {
-        //     console.log("err",err);
-        //
-        // })
+        axios({
+            method:'POST',
+            url:'http://xly-wkop.xiaoniangao.cn/getLessonInfo',
+            data:{'mid':'330900002'},
+            headers:{'Content-Type':'application/x-www-form-urlencoded'}
+        }).then(res =>{
+            console.log("接口",res);
+
+            // console.log("data",this.state)
+        }).catch(err => {
+            console.log("err",err);
+
+        })
 
 
     }

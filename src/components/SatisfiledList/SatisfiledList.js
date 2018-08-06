@@ -10,12 +10,15 @@ function color_render(text) {
 }
 
 export default class SatisfiledList extends Component{
+
     haddleReplyStatus = (id) => {
         const { actions } = this.props;
         actions.actions.changReplyStatus(id)
-    }
+    };
 
     render(){
+
+        console.log("satisfied组件内",this.props);
         const columns = {
 
             columns : [{
@@ -68,14 +71,30 @@ export default class SatisfiledList extends Component{
 
 
                 }
-            }]}
-        const { state } = this.props;
+            }]};
+
+        // rowKey = (record,i) => `${record.class_info && record.class_info.id}_${i}`
+        const { satisfiedEntities } = this.props.state
+        const { satisfied } = satisfiedEntities
+        let newList = satisfied.result;
+        if(satisfied){
+            newList = satisfied.result.map(t=>{
+                const satisfiled = satisfiedEntities.satisfiled[t];
+                return {
+                    ...satisfiled,
+                    class_info: satisfiedEntities.classes[satisfiled.class_info],
+                    teacher_info: satisfiedEntities.teachers[satisfiled.teacher_info]
+                }
+            });
+
+        }
         return(
             <div>
 
                 <Table
+                    // rowKey={this.rowKey}
                     columns={columns.columns}
-                    dataSource={state.satisfiledList.list}
+                    dataSource={newList}
                     bordered
 
                 />
