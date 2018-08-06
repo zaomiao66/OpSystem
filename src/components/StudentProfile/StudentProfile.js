@@ -47,9 +47,10 @@ const columns = {
 export default class StudentProfile extends Component{
 
     filterTable=()=>{
-        const{ state }= this.props;
+       const { filterList,state } = this.props;
+       const isSeached = this.props.isSeached;
         console.log("SSTATE2",this.props)
-        if(!state.isSeached){
+        if(!isSeached){
             return <Table
                 columns={columns.columns}
                 dataSource={state}
@@ -57,7 +58,7 @@ export default class StudentProfile extends Component{
         }else{
             return <Table
                 columns={columns.columns}
-                dataSource={state.filterList}
+                dataSource={filterList}
             />
         }
     }

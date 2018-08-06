@@ -25,6 +25,27 @@ function studentReducer(state = initState, action) {
 
             }
         }
+
+        case ActionTypes.MID_SEARCH:{
+            // console.log("sbbb",action)
+            const { value } = action;
+            if(!value){
+                return {
+                    ...state,
+                    isSeached:false
+                }
+            }
+            // const  studentList = state;
+            const newState = {...state};
+            newState.filterList.length=0;
+            const res = state.studentIds.filter(item => {
+                return item.toString() === value
+            });
+            newState.filterList = res;
+            newState.isSeached = true;
+            console.log("stAte", newState);
+            return newState;
+        }
         default:
             return state;
     }

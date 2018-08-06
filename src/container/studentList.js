@@ -37,11 +37,11 @@ class StudentList extends Component {
 
 
     render() {
-        const { Actions,studentList } = this.props
+        const { Actions,studentList,isSeached,filterList } = this.props
         console.log("statestate",this.props)
         return (
             <div className="Op">
-                <StudentProfile state={studentList} actions={Actions}/>
+                <StudentProfile state={studentList} isSeached={isSeached} filterList={filterList} actions={Actions}/>
             </div>
         )
     }
@@ -54,10 +54,13 @@ function mapStateToProps(state, ownProps) {
 
     // const { messageState, switchState,studentList,classInfo } = state;
     // return { messageState, switchState,studentList,classInfo };
+    console.log(state)
     const { studentReducer } = state.studentListEntities;
     const studentList = studentReducer.studentIds.map(id => studentReducer.entities[id]);
-    console.log("sccc",{studentList})
-    return { studentList };
+    const filterList = studentReducer.filterList.map(id => studentReducer.entities[id]);
+    const { isSeached } = studentReducer;
+    // console.log("sccc",{studentList})
+    return { studentList,isSeached,filterList };
 }
 
 function mapDispatchToProps(dispatch) {
