@@ -48,11 +48,11 @@ export default class StudentProfile extends Component{
 
     filterTable=()=>{
         const{ state }= this.props;
-        // console.log("SSTATE2",this.props.state)
+        console.log("SSTATE2",this.props)
         if(!state.isSeached){
             return <Table
                 columns={columns.columns}
-                dataSource={state.studentList}
+                dataSource={state}
             />
         }else{
             return <Table

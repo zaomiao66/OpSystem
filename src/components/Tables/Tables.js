@@ -96,28 +96,28 @@ export default class Tables extends Component{
        // setInterval(console.log("state15",lessonInfoEntities),6000)
 
 
-        const currentLessonsList = lessonInfoEntities.result.currentLessonIds.map(id =>
-        {
-           const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
-            const teacher = lessonInfoEntities.teachers[teacherInfo];
-            const _class = lessonInfoEntities.classes[classInfo];
-            return {
-                ...lessonInfoEntities.lessonInfo[id],
-                teacherInfo:teacher,
-                classInfo:_class
-            }
-        });
-        const historyLessonsList = lessonInfoEntities.result.historyLessonIds.map(id =>
-        {
-            const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
-            const teacher = lessonInfoEntities.teachers[teacherInfo];
-            const _class = lessonInfoEntities.classes[classInfo];
-            return {
-                ...lessonInfoEntities.lessonInfo[id],
-                teacherInfo:teacher,
-                classInfo:_class
-            }
-        });
+        // const currentLessonsList = lessonInfoEntities.result.currentLessonIds.map(id =>
+        // {
+        //    const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
+        //     const teacher = lessonInfoEntities.teachers[teacherInfo];
+        //     const _class = lessonInfoEntities.classes[classInfo];
+        //     return {
+        //         ...lessonInfoEntities.lessonInfo[id],
+        //         teacherInfo:teacher,
+        //         classInfo:_class
+        //     }
+        // });
+        // const historyLessonsList = lessonInfoEntities.result.historyLessonIds.map(id =>
+        // {
+        //     const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
+        //     const teacher = lessonInfoEntities.teachers[teacherInfo];
+        //     const _class = lessonInfoEntities.classes[classInfo];
+        //     return {
+        //         ...lessonInfoEntities.lessonInfo[id],
+        //         teacherInfo:teacher,
+        //         classInfo:_class
+        //     }
+        // });
 
 
         // const historyLessonsList = lessonInfoEntities.result.historyLessonIds.map(id => lessonInfoEntities.lessonInfo[id]);
@@ -134,7 +134,7 @@ export default class Tables extends Component{
                 </div>
                 <Table
                     columns={columns.columns}
-                    dataSource={currentLessonsList}
+                    dataSource={state.currentLessonsList}
                     bordered
                 />
                 <div className="class_now_1">
@@ -142,7 +142,7 @@ export default class Tables extends Component{
                 </div>
                 <Table
                     columns={columns.columns}
-                    dataSource={historyLessonsList}
+                    dataSource={state.historyLessonsList}
                     bordered
                 />
             </div>

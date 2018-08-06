@@ -41,9 +41,32 @@ import lessonInfoEntities from "../reducers/lessonInfoEntities";
 
 
 function mapStateToProps(state, ownProps) {
-     console.log("statestate",state)
+     // console.log("statestate",state)
     const { userInfo, lessonInfoEntities,satisfiedEntities } = state;
-    return { userInfo, lessonInfoEntities,satisfiedEntities };
+    const currentLessonsList = lessonInfoEntities.result.currentLessonIds.map(id =>
+    {
+        const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
+        const teacher = lessonInfoEntities.teachers[teacherInfo];
+        const _class = lessonInfoEntities.classes[classInfo];
+        return {
+            ...lessonInfoEntities.lessonInfo[id],
+            teacherInfo:teacher,
+            classInfo:_class
+        }
+    });
+    const historyLessonsList = lessonInfoEntities.result.historyLessonIds.map(id =>
+    {
+        const {teacherInfo,classInfo} = lessonInfoEntities.lessonInfo[id];
+        const teacher = lessonInfoEntities.teachers[teacherInfo];
+        const _class = lessonInfoEntities.classes[classInfo];
+        return {
+            ...lessonInfoEntities.lessonInfo[id],
+            teacherInfo:teacher,
+            classInfo:_class
+        }
+    });
+
+    return { userInfo, currentLessonsList,historyLessonsList,satisfiedEntities };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -22,5 +22,10 @@ const lessonEntities = new schema.Entity('lessonEntities',{
     idAttribute:'id'
 });
 
+const studentListEntities = new schema.Entity('studentListEntities',{},{
+    idAttribute:'mid'
+});
+
 export const SATISFILEDLIST = [ satisfiled ];
-export const LESSONLIST = [ lessonEntities ]
+export const LESSONLIST = [ lessonEntities ];
+export const STUDENTLIST = [ studentListEntities ];

@@ -47,9 +47,9 @@ function getStudentList(){
         SERVER_API:{
             type:ActionTypes.GET_STUDENT_LIST,
             endpoint:'/getStudentList',
-            // params:{
-            //     mid:'11'
-            // }
+            normailzerFun:response=> {
+                return normalize(response.data, schemes.STUDENTLIST)
+            }
 
         }
     }

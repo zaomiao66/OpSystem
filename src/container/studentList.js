@@ -54,7 +54,9 @@ function mapStateToProps(state, ownProps) {
 
     // const { messageState, switchState,studentList,classInfo } = state;
     // return { messageState, switchState,studentList,classInfo };
-    const { studentList } = state;
+    const { studentReducer } = state.studentListEntities;
+    const studentList = studentReducer.studentIds.map(id => studentReducer.entities[id]);
+    console.log("sccc",{studentList})
     return { studentList };
 }
 
