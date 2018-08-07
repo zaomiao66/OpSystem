@@ -40,12 +40,15 @@ function satisfiled (state = {},action){
             };
         }
         case `${ActionTypes.CHANGE_REPLY_STATUS}`: {
-            const { time } = action.params;
+            const params = action.params;
 
-            const targetItem = { ...state[time] };
-            targetItem.reply_status = 1;
+            const targetItem = { ...state };
+            // console.log("targetItem",targetItem)
+            // console.log("state",state)
+            targetItem[ params ].reply_status = 1;
 
-            const nextState = { ...state, [time]: targetItem };
+            const nextState = { ...state,  targetItem };
+            // console.log("nextState",nextState)
             return nextState
         }
         default:

@@ -65,7 +65,7 @@ export default class SatisfiledList extends Component{
                 // render: text => click_render(text)
                 render: (text,record) => {
                     if(text === 0) {
-                        return <div onClick={this.haddleReplyStatus.bind(this,record.class_info.id)}><Icon  type="mail"/><span>待回复</span></div>;
+                        return <div onClick={this.haddleReplyStatus.bind(this,record.time)}><Icon  type="mail"/><span>待回复</span></div>;
                     }
                     return <div><span>已回复</span></div>
 

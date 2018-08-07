@@ -91,10 +91,10 @@ function midSearch(value) {
 }
 
 function changReplyStatus(params){
-    const { mid, time, lessonIndex } = params
+    const  mid= params
     return {
         type: ActionTypes.CHANGE_REPLY_STATUS,
-        params: { mid, lessonIndex, time }
+        params: mid
     }
 }
 
