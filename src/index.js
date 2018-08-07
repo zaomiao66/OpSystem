@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import StudentList from "./container/studentList";
 import Op from "./container/Op";
 import ClassInfo from "./container/classInfo";
+import JobReview from "./container/jobReview"
 
 import rootReducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -31,7 +32,8 @@ const routes = [{
     childRoutes: [
         { path: 'studentList', component: StudentList },
         { path: 'Op(/:mid)', component: Op },
-        { path: 'classInfo(/:mid)', component: ClassInfo }
+        { path: 'classInfo(/:mid)', component: ClassInfo },
+        { path: 'jobReview', component: JobReview }
     ]
 }];
 

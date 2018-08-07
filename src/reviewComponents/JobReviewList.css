@@ -1,0 +1,29 @@
+.JobReviewList{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+}
+.JobReviewList_left{
+    display: flex;
+    flex-direction: column;
+    height:500px;
+}
+
+.JobReviewList_left_top{
+    height:200px;
+    width: 750px;
+}
+
+.JobReviewList_left_mid{
+    display: flex;
+    flex-direction: row;
+    width: 750px;
+    height: 50px;
+    border: gray 2px;
+}
+
+.JobReviewList_right{
+    display: flex;
+    width: 350px;
+    margin-left: 200px;
+}

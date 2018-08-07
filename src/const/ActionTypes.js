@@ -19,3 +19,5 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 export const CHANGE_REPLY_STATUS = 'CHANGE_REPLY_STATUS';
 
+export const GET_HOME_WORK = 'GET_HOME_WORK'
+

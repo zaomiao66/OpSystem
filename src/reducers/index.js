@@ -7,6 +7,7 @@ import classInfo from './classInfo';
 import satisfiedEntities from './satisfiedEntities'
 import lessonInfoEntities from './lessonInfoEntities'
 import studentListEntities from './studentListEntities'
+import homeworkReducer from './homeworkReducer'
 
 // import midSearch from './midSearch'
 export default combineReducers({
@@ -19,5 +20,6 @@ export default combineReducers({
     lessonInfoEntities,
     studentListEntities,
     // midSearch
+    homeworkReducer
 });
 

@@ -7,6 +7,7 @@ import {MID_INPUT} from "../const/ActionTypes";
 import {MID_SEARCH} from "../const/ActionTypes";
 import { normalize } from 'normalizr'
 import * as schemes from '../schema/index'
+import  * as schemesHomework from '../schema/homework'
 
 
 
@@ -98,6 +99,24 @@ function changReplyStatus(params){
     }
 }
 
+function getHomeWork(token,isReviewed) {
+    return{
+        SERVER_API:{
+            type:ActionTypes.GET_HOME_WORK,
+            endpoint:'/getHomeWork',
+            params:{
+                token,
+                isReviewed
+            },
+            normailzerFun:response=> {
+                const tem = normalize(response.data, schemesHomework.HOMEWORK);
+                console.log("tem",tem)
+                return tem
+            }
+        }
+    }
+}
+
 export {
     fetchUsersInfo,
     fetchLessonInfo,
@@ -106,4 +125,5 @@ export {
     midSearch,
     getSatisfiledList,
     changReplyStatus,
+    getHomeWork
 }
