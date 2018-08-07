@@ -13,6 +13,7 @@ export default class HomeworkReview extends Component{
         
         function color_word(item) {
             if(item.status === "reject") return(<div style={{color:'red'}}> (消息被退回，退回原因：{item.reason})</div>)
+            if(item.status === "unrevised") return(<div style={{color:'red'}}> 退回</div>)
         }
         
          return(

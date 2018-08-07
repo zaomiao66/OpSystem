@@ -39,17 +39,17 @@ export default class TabBar extends Component{
                 </TabPane>
                 <TabPane tab="我的点评历史" key="2">
                     <div>
-                        wode
+                        <JobReviewList homework = {state.homeworkReviewed} />
                     </div>
                 </TabPane>
                     <TabPane  tab="全部未点评" key="3">
                         <div>
-                            全部未点评
+                            <JobReviewList homework = {state.allHomework} />
                         </div>
                     </TabPane>
                     <TabPane  tab="全部已点评" key="4">
                         <div>
-                            全部已点评
+                            <JobReviewList homework = {state.allHomeworkReviewed} />
                         </div>
                     </TabPane>
             </Tabs>

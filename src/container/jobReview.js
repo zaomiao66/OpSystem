@@ -15,6 +15,9 @@ class JobReview extends Component {
         const { Actions } = this.props;
         // console.log("props",this.props);
         Actions.getHomeWork(1,0);
+        Actions.getHomeWorkHasReviewed(1,1);
+        Actions.getAllHomeWork(0,0);
+        Actions.getAllHomeWorkHasReviewed(0,1);
     }
 
 
@@ -33,8 +36,7 @@ class JobReview extends Component {
 
 function mapStateToProps(state, ownProps) {
     // console.log("statestate",state)
-    const { homeworkReducer } = state;
-    console.log('type',typeof (homeworkReducer.studentIds))
+    const { homeworkReducer,homeworkHasReviewed,allHomeworkReducer,allHomeworkHasReviewed } = state;
     const homework = homeworkReducer.studentIds.map(id =>{
         const { comments,author } = homeworkReducer.homework[id];
         const _author = homeworkReducer.author[author];
@@ -43,8 +45,32 @@ function mapStateToProps(state, ownProps) {
             comments:_comments,
             author:_author };
     });
-    console.log("homework",homework);
-    return  {homework} ;
+    const homeworkReviewed = homeworkHasReviewed.studentIds.map(id =>{
+        const { comments,author } = homeworkHasReviewed.homework[id];
+        const _author = homeworkHasReviewed.author[author];
+        const _comments = comments.map(t =>homeworkHasReviewed.comments[t] )
+        return { ...homeworkHasReviewed.homework[id],
+            comments:_comments,
+            author:_author };
+    });
+    const allHomework = allHomeworkReducer.studentIds.map(id =>{
+        const { comments,author } = allHomeworkReducer.homework[id];
+        const _author = allHomeworkReducer.author[author];
+        const _comments = comments.map(t =>allHomeworkReducer.comments[t] )
+        return { ...allHomeworkReducer.homework[id],
+            comments:_comments,
+            author:_author };
+    });
+    const allHomeworkReviewed = allHomeworkHasReviewed.studentIds.map(id =>{
+        const { comments,author } = allHomeworkHasReviewed.homework[id];
+        const _author = allHomeworkHasReviewed.author[author];
+        const _comments = comments.map(t =>allHomeworkHasReviewed.comments[t] )
+        return { ...allHomeworkHasReviewed.homework[id],
+            comments:_comments,
+            author:_author };
+    });
+    // console.log("homework",homework);
+    return  {homework,homeworkReviewed,allHomework,allHomeworkReviewed} ;
 }
 
 function mapDispatchToProps(dispatch) {

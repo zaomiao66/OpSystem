@@ -5,7 +5,7 @@ import HomeworkInfo from "./HomeworkInfo";
 import HomeworkReview from "./HomeworkReview";
 import './JobReviewList.css'
 
-const data = [1,2,3,4,5];
+
 
 export default class JobReviewList extends Component{
 

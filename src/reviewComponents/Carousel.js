@@ -6,14 +6,15 @@ export default class ImageCarousel extends Component{
     render(){
         const { homework } = this.props;
         // console.log(homework.photos)
+        function photoDisplay(arrays) {
+            return arrays.map(array =>{
+              return (<img className="image" src ={array} />)
+            })
+        }
         return(
 
                 <div className="images">
-                    <img className="image" src ={homework.photos[0]} />
-                    <img className="image" src ={homework.photos[1]} />
-                    <img className="image" src ={homework.photos[2]} />
-                    <img className="image" src ={homework.photos[3]} />
-                    <img className="image" src ={homework.photos[4]} />
+                    {photoDisplay(homework.photos)}
                 </div>
 
         )

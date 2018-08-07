@@ -110,7 +110,59 @@ function getHomeWork(token,isReviewed) {
             },
             normailzerFun:response=> {
                 const tem = normalize(response.data, schemesHomework.HOMEWORK);
-                console.log("tem",tem)
+                // console.log("tem",tem)
+                return tem
+            }
+        }
+    }
+}
+function getAllHomeWork(token,isReviewed) {
+    return{
+        SERVER_API:{
+            type:ActionTypes.GET_ALL_HOME_WORK,
+            endpoint:'/getHomeWork',
+            params:{
+                token,
+                isReviewed
+            },
+            normailzerFun:response=> {
+                const tem = normalize(response.data, schemesHomework.HOMEWORK);
+                // console.log("tem",tem)
+                return tem
+            }
+        }
+    }
+}
+function getAllHomeWorkHasReviewed(token,isReviewed) {
+    return{
+        SERVER_API:{
+            type:ActionTypes.GET_ALL_HOME_WORK_HAS_REVIEWED,
+            endpoint:'/getHomeWork',
+            params:{
+                token,
+                isReviewed
+            },
+            normailzerFun:response=> {
+                const tem = normalize(response.data, schemesHomework.HOMEWORK);
+                // console.log("tem",tem)
+                return tem
+            }
+        }
+    }
+}
+
+function getHomeWorkHasReviewed(token,isReviewed) {
+    return{
+        SERVER_API:{
+            type:ActionTypes.GET_HOME_WORK_HAS_REVIEWED,
+            endpoint:'/getHomeWork',
+            params:{
+                token,
+                isReviewed
+            },
+            normailzerFun:response=> {
+                const tem = normalize(response.data, schemesHomework.HOMEWORK);
+                // console.log("tem",tem)
                 return tem
             }
         }
@@ -125,5 +177,8 @@ export {
     midSearch,
     getSatisfiledList,
     changReplyStatus,
-    getHomeWork
+    getHomeWork,
+    getHomeWorkHasReviewed,
+    getAllHomeWork,
+    getAllHomeWorkHasReviewed
 }

@@ -32,8 +32,8 @@ export default class HomeworkInfo extends Component{
 
             </div>
                 <Search
-                    placeholder="input search text"
-                    enterButton="Search"
+                    placeholder="input text"
+                    enterButton="提交"
                     size="large"
                     onSearch={value => console.log(value)}
                 />

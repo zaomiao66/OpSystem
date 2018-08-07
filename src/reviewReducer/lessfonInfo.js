@@ -1,7 +1,7 @@
 
 import * as ActionTypes from '../const/ActionTypes';
 import React from 'react'
-import './tableInfo.css'
+import '../reducers/tableInfo.css'
 
 
 export default function lessonInfo(state = [], action) {
