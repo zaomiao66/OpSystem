@@ -92,7 +92,7 @@ function midSearch(value) {
 }
 
 function changReplyStatus(params){
-    const  mid= params
+    const  mid= params;
     return {
         type: ActionTypes.CHANGE_REPLY_STATUS,
         params: mid
@@ -110,7 +110,7 @@ function getHomeWork(token,isReviewed) {
             },
             normailzerFun:response=> {
                 const tem = normalize(response.data, schemesHomework.HOMEWORK);
-                // console.log("tem",tem)
+                console.log("tem",tem)
                 return tem
             }
         }
@@ -169,6 +169,36 @@ function getHomeWorkHasReviewed(token,isReviewed) {
     }
 }
 
+function returnComment(id) {//退回评论
+    return{
+        type:ActionTypes.RETURN_COMMENT,
+        params:{
+            id: id,
+            reason:"点评的太简单了",
+            status:"reject"
+        }
+
+    }
+}
+
+function inputNewComment(id,content) {//增加新的评论
+
+    return{
+            type:ActionTypes.INPUT_NEW_COMMENT,
+
+                id,
+                content
+
+        }
+}
+
+function toggleExcellent(id) {//更改佳作
+    return {
+        type:ActionTypes.TOGGLE_EXCELLENT,
+        id
+    }
+}
+
 export {
     fetchUsersInfo,
     fetchLessonInfo,
@@ -180,5 +210,8 @@ export {
     getHomeWork,
     getHomeWorkHasReviewed,
     getAllHomeWork,
-    getAllHomeWorkHasReviewed
+    getAllHomeWorkHasReviewed,
+    returnComment,
+    inputNewComment,
+    toggleExcellent
 }

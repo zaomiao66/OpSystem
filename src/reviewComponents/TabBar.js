@@ -19,7 +19,7 @@ export default class TabBar extends Component{
 
     render(){
         const { state } = this.props;
-        console.log("state",this.props)
+        // console.log("state",this.props)
         return(
 
             <div >
@@ -34,22 +34,22 @@ export default class TabBar extends Component{
                 <Tabs defaultActiveKey="1" onChange={callback} type="card">
                 <TabPane  tab="我的未点评" key="1">
                     <div>
-                        <JobReviewList homework = {state.homework} />
+                        <JobReviewList homework = {state.myHomeworkNotReviewed} Actions = {this.props.Actions}/>
                     </div>
                 </TabPane>
                 <TabPane tab="我的点评历史" key="2">
                     <div>
-                        <JobReviewList homework = {state.homeworkReviewed} />
+                        <JobReviewList homework = {state.myHomeworkBeReviewed} Actions = {this.props.Actions} />
                     </div>
                 </TabPane>
                     <TabPane  tab="全部未点评" key="3">
                         <div>
-                            <JobReviewList homework = {state.allHomework} />
+                            <JobReviewList homework = {state.allHomeworkNotReviewed} Actions = {this.props.Actions} />
                         </div>
                     </TabPane>
                     <TabPane  tab="全部已点评" key="4">
                         <div>
-                            <JobReviewList homework = {state.allHomeworkReviewed} />
+                            <JobReviewList homework = {state.allHomeworkBeReviewed} Actions = {this.props.Actions} />
                         </div>
                     </TabPane>
             </Tabs>

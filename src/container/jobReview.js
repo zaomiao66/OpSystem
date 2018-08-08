@@ -25,7 +25,7 @@ class JobReview extends Component {
         // console.log(this.props)
         return (
             <div className="Op">
-                <TabBar state={this.props}/>
+                <TabBar state={this.props} Actions={this.props.Actions}/>
             </div>
         )
     }
@@ -35,42 +35,41 @@ class JobReview extends Component {
 
 
 function mapStateToProps(state, ownProps) {
-    // console.log("statestate",state)
-    const { homeworkReducer,homeworkHasReviewed,allHomeworkReducer,allHomeworkHasReviewed } = state;
-    const homework = homeworkReducer.studentIds.map(id =>{
-        const { comments,author } = homeworkReducer.homework[id];
-        const _author = homeworkReducer.author[author];
-        const _comments = comments.map(t =>homeworkReducer.comments[t] )
-        return { ...homeworkReducer.homework[id],
+    // console.log("statestate",state.homeworkReducer)
+    const { homeworkReducer} = state;
+    const { homeworkEntities } = homeworkReducer;
+
+    const myHomeworkNotReviewed = homeworkEntities.myHomeworkNotReviewed.map(id =>{
+        const { comments,author } = homeworkEntities.homework[id];
+        const _author = homeworkEntities.author[author];
+        const _comments = comments.map(t =>homeworkEntities.comments[t] )
+        return { ...homeworkEntities.homework[id],
             comments:_comments,
             author:_author };
     });
-    const homeworkReviewed = homeworkHasReviewed.studentIds.map(id =>{
-        const { comments,author } = homeworkHasReviewed.homework[id];
-        const _author = homeworkHasReviewed.author[author];
-        const _comments = comments.map(t =>homeworkHasReviewed.comments[t] )
-        return { ...homeworkHasReviewed.homework[id],
+    const myHomeworkBeReviewed = homeworkEntities.myHomeworkBeReviewed.map(id =>{
+        const { comments,author } = homeworkEntities.homework[id];
+        const _author = homeworkEntities.author[author];
+        const _comments = comments.map(t =>homeworkEntities.comments[t] )
+        return { ...homeworkEntities.homework[id],
+            comments:_comments,
+            author:_author };
+    });const allHomeworkNotReviewed = homeworkEntities.allHomeworkNotReviewed.map(id =>{
+        const { comments,author } = homeworkEntities.homework[id];
+        const _author = homeworkEntities.author[author];
+        const _comments = comments.map(t =>homeworkEntities.comments[t] )
+        return { ...homeworkEntities.homework[id],
+            comments:_comments,
+            author:_author };
+    });const allHomeworkBeReviewed = homeworkEntities.allHomeworkBeReviewed.map(id =>{
+        const { comments,author } = homeworkEntities.homework[id];
+        const _author = homeworkEntities.author[author];
+        const _comments = comments.map(t =>homeworkEntities.comments[t] )
+        return { ...homeworkEntities.homework[id],
             comments:_comments,
             author:_author };
     });
-    const allHomework = allHomeworkReducer.studentIds.map(id =>{
-        const { comments,author } = allHomeworkReducer.homework[id];
-        const _author = allHomeworkReducer.author[author];
-        const _comments = comments.map(t =>allHomeworkReducer.comments[t] )
-        return { ...allHomeworkReducer.homework[id],
-            comments:_comments,
-            author:_author };
-    });
-    const allHomeworkReviewed = allHomeworkHasReviewed.studentIds.map(id =>{
-        const { comments,author } = allHomeworkHasReviewed.homework[id];
-        const _author = allHomeworkHasReviewed.author[author];
-        const _comments = comments.map(t =>allHomeworkHasReviewed.comments[t] )
-        return { ...allHomeworkHasReviewed.homework[id],
-            comments:_comments,
-            author:_author };
-    });
-    // console.log("homework",homework);
-    return  {homework,homeworkReviewed,allHomework,allHomeworkReviewed} ;
+        return{ myHomeworkNotReviewed,myHomeworkBeReviewed,allHomeworkNotReviewed,allHomeworkBeReviewed }
 }
 
 function mapDispatchToProps(dispatch) {

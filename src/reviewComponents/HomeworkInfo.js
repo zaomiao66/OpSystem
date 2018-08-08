@@ -12,8 +12,8 @@ export default class HomeworkInfo extends Component{
 
 
     render(){
-        console.log(this.props)
-        const { homework } = this.props
+        // console.log(this.props)
+        const { homework,Actions } = this.props
         return(<div>
             <div className="info">
                 <span className="left"><span>NO.{homework.id}</span><img className="img" src={toux}/></span>
@@ -27,7 +27,9 @@ export default class HomeworkInfo extends Component{
                         <span style={{marginLeft:10}}>提交时间:{homework.time}</span>
                         </span>
                 </span>
-                <span className="right"> 佳作<Switch /></span>
+                <span className="right"> 佳作<Switch
+                    onChange={() => {Actions.toggleExcellent(homework.id)}}
+                    defaultChecked={homework.isExcellent} /></span>
 
 
             </div>
@@ -35,7 +37,7 @@ export default class HomeworkInfo extends Component{
                     placeholder="input text"
                     enterButton="提交"
                     size="large"
-                    onSearch={value => console.log(value)}
+                    onSearch={value => Actions.inputNewComment(homework.id,value)}
                 />
             </div>
         )

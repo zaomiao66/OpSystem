@@ -8,9 +8,9 @@ import satisfiedEntities from './satisfiedEntities'
 import lessonInfoEntities from './lessonInfoEntities'
 import studentListEntities from './studentListEntities'
 import homeworkReducer from './homeworkReducer'
-import homeworkHasReviewed from './homeworkHasReviewed'
-import allHomeworkReducer from  './allHomeworkReducer'
-import allHomeworkHasReviewed from './allHomeworkHasReviewed'
+// import homeworkHasReviewed from '../reviewReducer/homeworkHasReviewed'
+// import allHomeworkReducer from '../reviewReducer/allHomeworkReducer'
+// import allHomeworkHasReviewed from '../reviewReducer/allHomeworkHasReviewed'
 
 // import midSearch from './midSearch'
 export default combineReducers({
@@ -24,8 +24,8 @@ export default combineReducers({
     studentListEntities,
     // midSearch
     homeworkReducer,
-    homeworkHasReviewed,
-    allHomeworkReducer,
-    allHomeworkHasReviewed
+    // homeworkHasReviewed,
+    // allHomeworkReducer,
+    // allHomeworkHasReviewed
 });
 

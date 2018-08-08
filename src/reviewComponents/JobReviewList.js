@@ -11,7 +11,7 @@ export default class JobReviewList extends Component{
 
     render(){
         const { homework } = this.props
-        console.log("homework",homework)
+        // console.log("homework",homework)
         return(
             <div>
                 <List
@@ -22,10 +22,10 @@ export default class JobReviewList extends Component{
                         <div className="JobReviewList">
                             <div className="JobReviewList_left">
                             <div className="JobReviewList_left_top"> <ImageCarousel homework={item}/> </div>
-                            <div className="JobReviewList_left_mid"> <HomeworkInfo homework = { item }/> </div>
+                            <div className="JobReviewList_left_mid"> <HomeworkInfo homework = { item }  Actions = {this.props.Actions}/> </div>
 
                             </div>
-                            <div className="JobReviewList_right"> <HomeworkReview homework = { item }/></div>
+                            <div className="JobReviewList_right"> <HomeworkReview homework = { item } Actions = {this.props.Actions}/></div>
 
                         </div>
 

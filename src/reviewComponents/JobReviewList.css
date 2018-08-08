@@ -6,11 +6,11 @@
 .JobReviewList_left{
     display: flex;
     flex-direction: column;
-    height:500px;
+    height:800px;
 }
 
 .JobReviewList_left_top{
-    height:200px;
+    height:400px;
     width: 750px;
 }
 
