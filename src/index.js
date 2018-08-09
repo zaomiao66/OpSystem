@@ -7,7 +7,7 @@ import StudentList from "./container/studentList";
 import Op from "./container/Op";
 import ClassInfo from "./container/classInfo";
 import JobReview from "./container/jobReview"
-
+import Weui from "./container/weui";
 import rootReducer from './reducers'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Router,  browserHistory } from 'react-router'
@@ -33,7 +33,8 @@ const routes = [{
         { path: 'studentList', component: StudentList },
         { path: 'Op(/:mid)', component: Op },
         { path: 'classInfo(/:mid)', component: ClassInfo },
-        { path: 'jobReview', component: JobReview }
+        { path: 'jobReview', component: JobReview },
+        { path: 'weui', component:Weui }
     ]
 }];
 

@@ -1,0 +1,128 @@
+.mask {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+    transition: opacity .3s ease-in;
+}
+
+.showMask {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hideMask {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.Dialog_window{
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    display: flex;
+    z-index: 5000;
+    background-color: #FFFFFF;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 150px;
+    transform: translate(-200%)
+}
+.showDialog_window {
+    transform: translate(0);
+}
+
+.titleInDialog{
+    font-size: 18px;
+    color: #000;
+    margin-top: 25px;
+}
+
+.content_text{
+    margin-top: 15px;
+    font-size: 15px;
+    color: #999;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.content_textAndroid{
+    margin-top: 15px;
+    font-size: 18px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.operate{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+
+}
+.operateAndroid{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 15px;
+}
+.subOperate{
+    text-align: center;
+    width:50%;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+}
+
+.mainOperate{
+    text-align: center;
+    width: 50%;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    color: #33cc00
+}
+
+.subOperateAndroid{
+    width:20%;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+}
+
+.mainOperateAndroid{
+    width: 30%;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 18px;
+    color: #33cc00
+}
+
+.divider {
+    position: relative;
+}
+.divider:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #e5e5e5;
+    transform: scaleY(0.5)
+}
+
+.dividerRight{
+    position: relative;
+}
+.dividerRight:after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #e5e5e5;
+    transform: scaleY(0.5)
+}
+

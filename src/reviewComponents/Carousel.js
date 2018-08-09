@@ -10,8 +10,8 @@ export default class ImageCarousel extends Component{
         const { homework } = this.props;
         // console.log(homework.photos)
         function photoDisplay(arrays) {
-            return arrays.map(array =>{
-              return (<img className="image" src ={array} />)
+            return arrays.map((array,idx )=>{
+              return (<img key={idx} className="image" src ={array} />)
             })
         }
         return(
@@ -22,8 +22,8 @@ export default class ImageCarousel extends Component{
             <div  >
                 <Carousel  fade>
                     {
-                        homework.photos.map(src => {
-                            return <div><img className="image" src={src} alt="" /></div>
+                        homework.photos.map((src,idx) => {
+                            return <div key={idx}><img  className="image" src={src} alt="" /></div>
                         })
                     }
                 </Carousel>

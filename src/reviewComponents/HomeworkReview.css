@@ -1,4 +1,10 @@
 .colom{
     display: flex;
     flex-direction: column;
+
+}
+.list{
+    height: 600px;
+    overflow-y: scroll;
+    width: 350px;
 }

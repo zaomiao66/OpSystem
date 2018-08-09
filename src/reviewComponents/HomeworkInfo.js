@@ -13,7 +13,9 @@ export default class HomeworkInfo extends Component{
 
     render(){
         // console.log(this.props)
+
         const { homework,Actions } = this.props
+        console.log('home id:', homework.id + ', ' + homework.isExcellent);
         return(<div>
             <div className="info">
                 <span className="left"><span>NO.{homework.id}</span><img className="img" src={toux}/></span>
@@ -29,7 +31,7 @@ export default class HomeworkInfo extends Component{
                 </span>
                 <span className="right"> 佳作<Switch
                     onChange={() => {Actions.toggleExcellent(homework.id)}}
-                    defaultChecked={homework.isExcellent} /></span>
+                    checked={homework.isExcellent} /></span>
 
 
             </div>

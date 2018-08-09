@@ -1,0 +1,48 @@
+.progressBar{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 20px;
+    /*border: #010101 solid 1px;*/
+}
+.bar{
+    background-color: #EBEBEB;
+    height: 3px;
+    -webkit-box-flex: 1;
+    /*-webkit-flex: 1;*/
+    flex: 1;
+}
+.greenBar{
+    width: 0%;
+    transform: translateX(100);
+    height: 100%;
+    background-color: #09BB07;
+    transition: width 1s ease-in;
+}
+
+.showGreenBar{
+    width: 100%;
+    transform: translateX(0);
+}
+
+.hideGreenBar{
+    width: 100%;
+    transform: translateX(100);
+}
+.userButton{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.upLoad{
+    width: 50%;
+    font-size: 16px;
+    text-align: center;
+}
+.cancel{
+    width: 50%;
+    font-size: 16px;
+    text-align: center;
+}

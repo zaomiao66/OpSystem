@@ -83,8 +83,19 @@ function homeworkEntities(state = initState, action) {
             newState.homework[id].isExcellent = !newState.homework[id].isExcellent;
 
             if(newState.homework[id].isExcellent) console.log("这是佳作呢");
-            else console.log("才不是佳作呢")
+            else console.log("才不是佳作呢");
             return newState;
+            // asd['l']
+            // return {
+            //     ...state,
+            //     homework: {
+            //         ...state.homework,
+            //         [id]: {
+            //             ...state.homework[id],
+            //             isExcellent: !state.homework[id].isExcellent
+            //         }
+            //     }
+            // };
         }
         default:
             return state;
