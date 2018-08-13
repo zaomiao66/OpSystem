@@ -30,3 +30,13 @@ export const INPUT_NEW_COMMENT = "INPUT_NEW_COMMENT";//输入新的评论
 
 export const TOGGLE_EXCELLENT = "TOGGLE_EXCELLENT";//更改佳作
 
+export const GET_TEACHERS_RIGHT = "GET_TEACHERS_RIGHT";//获得老师的信息
+
+export const GET_TEACHERS_LEFT = "GET_TEACHERS_LEFT";//获得左边老师的信息
+
+export const ADD_TEACHERS_LEFT = "ADD_TEACHER_LEFT";//增加左边的老师
+
+export const DELETE_TEACHER_LEFT = "DELETE_TEACHER_LEFT";//减少左边的老师
+
+export const SEARCH_TEACHER_NAME_LEFT = "SEARCH_TEACHER_NAME_LEFT"//在左边框中搜索老师的名字
+

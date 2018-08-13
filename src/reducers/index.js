@@ -11,6 +11,8 @@ import homeworkReducer from './homeworkReducer'
 // import homeworkHasReviewed from '../reviewReducer/homeworkHasReviewed'
 // import allHomeworkReducer from '../reviewReducer/allHomeworkReducer'
 // import allHomeworkHasReviewed from '../reviewReducer/allHomeworkHasReviewed'
+import rightsManagementReducer from './rightsManagementReducer'
+
 
 // import midSearch from './midSearch'
 export default combineReducers({
@@ -27,5 +29,6 @@ export default combineReducers({
     // homeworkHasReviewed,
     // allHomeworkReducer,
     // allHomeworkHasReviewed
+    rightsManagementReducer,
 });
 

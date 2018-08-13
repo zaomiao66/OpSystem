@@ -67,8 +67,6 @@ function homeworkEntities(state = initState, action) {
                 from:"teacher",
                 id:homework[id].comments[homework[id].comments.length-1],
                 status:"unrevised",
-                nick:homework[id].teacherInfo.nick,
-                time:new Date().getTime()
             };
             const idx = homework[id].comments[homework[id].comments.length-1];
             newState.comments = { ...state.comments,[idx]:newComment };
@@ -102,21 +100,6 @@ function homeworkEntities(state = initState, action) {
     }
 }
 
-// function author(state = initState, action) {
-//     switch (action.type) {
-//         case `${ActionTypes.GET_HOME_WORK}_SUC`:{
-//             // console.log("3333333",action)
-//             const data = action.data.entities;
-//             return{
-//                 ...state.author,
-//                 ...data.author
-//             }
-//         }
-//         default:
-//             return state;
-//     }
-// }
-//
 // function comments(state = initState, action) {
 //     switch (action.type) {
 //         case `${ActionTypes.GET_HOME_WORK}_SUC`:{

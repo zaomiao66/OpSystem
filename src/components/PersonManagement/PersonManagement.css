@@ -1,0 +1,99 @@
+.PersonManagement{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin: 10px;
+    padding-bottom: 100px;
+}
+
+.ReviewHomework_1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    margin: 10px;
+    height: 40px;
+    justify-content: space-between;
+    border-bottom: #a1a1a1 solid 1px;
+}
+
+.ReviewHomework_left{
+    margin-left: 10px;
+    width: 800px;
+}
+
+.ReviewHomework_1_right{
+    height: 30px;
+    justify-content: center;
+    width: 200px;
+    display: flex;
+    margin-right: 40px;
+}
+
+.bodyInPersonManagement{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    margin-left: 10px;
+}
+
+.teachersBeAdded{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+
+}
+
+
+.teachersBeAddedTop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: #a1a1a1 solid 1px;
+
+}
+
+.teachersBeAddedBottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.teacherButton{
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    margin: 10px;
+    border: #a1a1a1 solid 1px;
+}
+
+.teachersTree{
+    display: flex;
+    justify-content: center;
+    width: 350px;
+}
+
+.teachersNotAdd{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.teachersNotAddTop{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: #a1a1a1 solid 1px;
+}
+
+.teachersNotAddBottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
+}

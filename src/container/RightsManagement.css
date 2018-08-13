@@ -1,0 +1,34 @@
+.RightsManagement{
+    display: flex;
+    flex-direction: column;
+    background: #a1a1a1;
+}
+
+.ReviewHomework{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: white;
+    margin: 10px;
+    height: 40px;
+    justify-content: space-between;
+}
+
+.titleInRightManagement{
+    margin: 10px;
+    font-weight: bold;
+}
+
+.ReviewHomework_left{
+    margin-left: 10px;
+    width: 800px;
+}
+
+.ReviewHomework_right{
+    height: 30px;
+    justify-content: center;
+    border: #a1a1a1 solid 1px;
+    width: 200px;
+    display: flex;
+    margin-right: 40px;
+}

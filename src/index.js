@@ -16,6 +16,7 @@ import { Provider } from 'react-redux'
 
 import './App.css'
 import serverApi from "./middleware/serverApi";
+import RightsManagement from "./container/RightsManagement";
 
 const logger = createLogger();
 const store = createStore(
@@ -34,7 +35,8 @@ const routes = [{
         { path: 'Op(/:mid)', component: Op },
         { path: 'classInfo(/:mid)', component: ClassInfo },
         { path: 'jobReview', component: JobReview },
-        { path: 'weui', component:Weui }
+        { path: 'weui', component:Weui },
+        { path: 'RightsManagement',component:RightsManagement}
     ]
 }];
 

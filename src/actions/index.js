@@ -199,6 +199,43 @@ function toggleExcellent(id) {//更改佳作
     }
 }
 
+function getTeacherRight(id) {//获得老师信息
+    return{
+        type:ActionTypes.GET_TEACHERS_RIGHT,
+        id
+    }
+}
+
+function getTeachersLeft() {//获得左边老师信息
+    return{
+        type:ActionTypes.GET_TEACHERS_LEFT,
+
+    }
+}
+
+function addTeachersLeft(mid) {//增加左边的老师
+    // console.log(mid);
+    return{
+        type:ActionTypes.ADD_TEACHERS_LEFT,
+        mid
+    }
+}
+
+function deleteTeachersLeft(mid) {//减少左边的老师
+    return{
+        type:ActionTypes.DELETE_TEACHER_LEFT,
+        mid
+    }
+
+}
+
+function searchTeacherNameLeft(value) {
+    return{
+        type:ActionTypes.SEARCH_TEACHER_NAME_LEFT,
+        value
+    }
+}
+
 export {
     fetchUsersInfo,
     fetchLessonInfo,
@@ -213,5 +250,10 @@ export {
     getAllHomeWorkHasReviewed,
     returnComment,
     inputNewComment,
-    toggleExcellent
+    toggleExcellent,
+    getTeacherRight,
+    getTeachersLeft,
+    addTeachersLeft,
+    deleteTeachersLeft,
+    searchTeacherNameLeft
 }

@@ -18,7 +18,7 @@ export default class Weui extends Component{
         dialogOkText:'',
         dialogCancelText:'',
 //这部分是进度条的
-        value:0,
+        value:14,
         classNameInProgress:'greenBar',
         showCancelInProgress:true,
     };
@@ -98,20 +98,18 @@ export default class Weui extends Component{
         });
     };
 
-    getClassName = () => {
+    getProgressValue = () => {
 
         this.setState({
-            classNameInProgress:'greenBar showGreenBar'
+            value:375,
         })
         // return 'greenBar showGreenBar';
 
     };
 
-    _getClassName = () => {
+    cancelInProgress = () => {
 
-        this.setState({
-            classNameInProgress:'greenBar'
-        })
+        console.log("取消")
         // return 'greenBar showGreenBar';
 
     };
@@ -143,10 +141,12 @@ export default class Weui extends Component{
                     onOk={this.handleOkActionDialog}
                 />
                 <Progress
-                    classNameInProgress={this.state.classNameInProgress}
+                    getProgressValue={this.getProgressValue}
+                    value={this.state.value}
+                    showCancelInProgress={this.state.showCancelInProgress}
+                    onCancel={this.cancelInProgress}
                 />
-                <span className="upLoad" onClick={this.getClassName}>上传</span>
-                <span className="cancel" onClick={this._getClassName}>取消</span>
+
             </div>
         );
     }
