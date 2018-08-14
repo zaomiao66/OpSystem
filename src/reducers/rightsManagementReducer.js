@@ -2,187 +2,322 @@ import * as ActionTypes from '../const/ActionTypes';
 import React from 'react'
 
 export default function rightsManagementReducer(state = {
-    classesTeacher:{
-        name:"所有课程",
-        classesId:[0,1,2],
+    root:101,
+    lesson:{ 101: {
+        id: 101,
+        name: "所有课程",
+        children: [1001, 1002],
     },
-    classes:{
-        0:{
-            name:"通信原理",
-            teachersId:[1001,1002,1007,1008]
-        },
-        1:{
-            name:"模拟电路",
-            teachersId:[1003,1004,1009,1010,1013]
-        },
-        2:{
-            name:"高等数学",
-            teachersId:[1005,1006,1011,1012]
-        }
+    1001: {
+        id: 1001,
+        name: "理工类",
+        children: [10001, 10002, 10003]
+
     },
+    1002: {
+        id: 1002,
+        name: "人文类",
+        children: [10004]
+    },
+    10001: {
+        id:10001,
+        name: "通信原理",
+        children: [],
+        users: [100001, 100002, 100007, 100008]
+    },
+    10002: {
+        id:10002,
+        name: "模拟电路",
+        children: [],
+        users: [100003, 100004, 100009, 100010, 100013]
+    },
+    10003: {
+        id:10003,
+        name: "高等数学",
+        children: [],
+        users: [100005, 100006, 100011, 100012]
+    },
+    10004: {
+        id:10004,
+        name: "学术写作",
+        children: [],
+        users: [100001, 100002, 100007, 100008]
+
+    },
+},
+
     teachers:{
-        1001:{
+        100001:{
             name:"黄老师",
-            mid: 1001
+            mid: 100001,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1002:{
+        100002:{
             name:"张老师",
-            mid: 1002
+            mid: 100002,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1003:{
+        100003:{
             name:"王老师",
-            mid: 1003
+            mid: 100003,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1004:{
+        100004:{
             name:"李老师",
-            mid: 1004
+            mid: 100004,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1005:{
+        100005:{
             name:"赵老师",
-            mid: 1005
+            mid: 100005,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1006:{
+        100006:{
             name:"孙老师",
-            mid: 1006
+            mid: 100006,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1007:{
+        100007:{
             name:"张老师",
-            mid: 1007
+            mid: 100007,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1008:{
+        100008:{
             name:"章老师",
-            mid: 1008
+            mid: 100008,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1009:{
+        100009:{
             name:"纪老师",
-            mid: 1009
+            mid: 100009,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1010:{
+        100010:{
             name:"王老师",
-            mid: 1010
+            mid: 100010,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1011:{
+        100011:{
             name:"永老师",
-            mid: 1011
+            mid: 100011,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1012:{
+        100012:{
             name:"孙老师",
-            mid: 1012
+            mid: 100012,
+            isSelect:false,
+            isSelectLeft:false
         },
-        1013:{
+        100013:{
             name:"周老师",
-            mid: 1013
+            mid: 100013,
+            isSelect:false,
+            isSelectLeft:false
         },
     },
     teachersInRight:[],
-    teachersInLeft:[1001,1002,1006,1007,1008]
+    teachersInLeft:[100001,100002,100006,100007,100008],
+    teachersInRightSelected:[],
+    teachersInLeftSelected:[],
+    leftIsSearching:false,
+    rightIsSearching:false,
+    leftSearch:[],
+    rightSearch:[],
+    isShow:false,
 }, action) {
     switch (action.type) {
+
+        //获得右边的信息
         case ActionTypes.GET_TEACHERS_RIGHT:{
             const id =action.id;
             // console.log("studentList",id)
-
-            const teachersInRight =  state.classes[id].teachersId.map(t =>{
-                return state.teachers[t]
-            });
+            console.log("teachersInRight",state);
+            const newState = [...state.lesson[id].users]
+            console.log("newState",newState)
+            const teachersInRight = newState.map(id =>state.teachers[id])
+            console.log("teachersInRight",teachersInRight)
             return {
                 ...state,
                 teachersInRight:teachersInRight
             };
         }
-        // case ActionTypes.GET_TEACHERS_LEFT:{
-        //
-        // if(state.teachersInLeft.length!==0){
-        //     const teachersInLeft =  state.teachersInLeft.map(t =>{
-        //         return state.teachers[t]
-        //     });
-        //     return {
-        //         ...state,
-        //         teachersInLeft:teachersInLeft
-        //     };
-        // }
-        //     return state;
-        //
-        // }
-
+        //选中右边的按钮
+        case ActionTypes.SELECT_TEACHERS_RIGHT:{
+            const mid = action.mid;
+            const newState = {...state};
+            newState.teachers[mid].isSelect = !newState.teachers[mid].isSelect;
+            if(newState.teachersInRightSelected.indexOf(mid) === -1){
+                newState.teachersInRightSelected.push(mid);
+                    }
+                    else{
+                let result = [];
+                    for(let i = 0; i<newState.teachersInRightSelected.length;i++){
+                        if(newState.teachersInRightSelected[i]!==mid){
+                            result.push(newState.teachersInRightSelected[i]);
+                        }
+                    }
+                    newState.teachersInRightSelected = result;
+            }
+            console.log("newState.teachersInRightSelected",newState.teachersInRightSelected);
+            return newState;
+        }
+        //增加到左边
         case ActionTypes.ADD_TEACHERS_LEFT:{
             console.log(state.teachersInLeft,"teachersInLeft ")
-            const  mid = action.mid;
-            let result = [];
-            // console.log("454554",mid)
-            const teachersInLeft = state.teachersInLeft
-            // teachersInLeft.push(mid)
-            for(let i=0; i<teachersInLeft.length;i++){
-                let ele = teachersInLeft[i];
-                if(result.indexOf(ele) === -1){
-                    result.push(ele);
+            if(state.teachersInRightSelected.length!==0) {
+                const newState = {...state};
+                let result = [];
+                for (let t = 0; t < newState.teachersInRightSelected.length; t++) {
+                    let mid = newState.teachersInRightSelected[t];
+
+                    const teachersInLeft = newState.teachersInLeft
+                    for (let i = 0; i < teachersInLeft.length; i++) {
+                        let ele = teachersInLeft[i];
+                        if (result.indexOf(ele) === -1) {
+                            result.push(ele);
+                        }
+                    }
+                    if (result.indexOf(mid) === -1) {
+                        result.push(mid);
+                    }
                 }
+                newState.teachersInLeft = result;
+                return newState;
             }
-            if(result.indexOf(mid) === -1){
-                result.push(mid);
-            }
-            // console.log("454554",state.teachersInLeft)
-            // console.log("454554",teachersInLeft)
-            return {
-                ...state,
-                teachersInLeft:result
-            };
-
-
+            return state;
         }
-        case ActionTypes.DELETE_TEACHER_LEFT:{
+        //选中左边的老师
+        case ActionTypes.SELECT_TEACHERS_LEFT:{
             const mid = action.mid;
-            const teachersInLeft = state.teachersInLeft;
-            let result = [];
-            for(let i = 0; i<teachersInLeft.length;i++){
-                if(teachersInLeft[i]!==mid){
-                    result.push(teachersInLeft[i]);
+            const newState = {...state};
+            newState.teachers[mid].isSelectLeft = !newState.teachers[mid].isSelectLeft;
+            if(newState.teachersInLeftSelected.indexOf(mid) === -1){
+                newState.teachersInLeftSelected.push(mid);
+            }
+            else{
+                let result = [];
+                for(let i = 0; i<newState.teachersInLeftSelected.length;i++){
+                    if(newState.teachersInLeftSelected[i]!==mid){
+                        result.push(newState.teachersInLeftSelected[i]);
+                    }
                 }
+                newState.teachersInLeftSelected = result;
             }
-            return{
-                ...state,
-                teachersInLeft:result
-            }
+            console.log("newState.teachersInLeftSelected",newState.teachersInLeftSelected);
+            return newState;
         }
 
+        //删除左边
+        case ActionTypes.DELETE_TEACHER_LEFT:{
+
+            const newState = {...state};
+            for (let t = 0; t < newState.teachersInLeftSelected.length; t++) {
+                if(newState.teachersInLeft.indexOf(newState.teachersInLeftSelected[t]) !== -1){
+                    const idx = newState.teachersInLeft.indexOf(newState.teachersInLeftSelected[t]);
+
+                    let mid = newState.teachersInLeftSelected[t]; ///问题在于没有清空数组
+                    console.log("mid",mid)
+                    newState.teachers[mid].isSelectLeft=false;
+                    newState.teachersInLeft.splice(idx,1);
+                }
+
+            }newState.teachersInLeftSelected = [];
+            return newState
+        }
+
+        //搜索左边
         case ActionTypes.SEARCH_TEACHER_NAME_LEFT:{
-            const name = action.value;
-            // const _mid= state.teachers.map(item =>{
-            //     if(item.name === name){
-            //         return item.mid
-            //     }
-            //     return -1
-            //     }
-            // );
-            // if( _mid!==-1) console.log(_mid)
+            const mid = action.value;
+            const newState = {...state};
+            if(!mid){
+                newState.leftIsSearching = false;
+                return newState
+            }
             let _mid =-1;
-            for(let item in state.teachers) {
-                if (state.teachers[item].name === name) {
+            for(let item in newState.teachers) {
+                if (newState.teachers[item].mid === parseInt(mid,10)) {
                     _mid = item
                 }
 
             }
+            console.log("qqqq",_mid);
             if( _mid!==-1) {
-                console.log(_mid);
-                const teachersInLeft = state.teachersInLeft;
+                console.log("qqqq",_mid);
+                const teachersInLeft = newState.teachersInLeft;
                 let result = [];
-                // console.log("11111",teachersInLeft);
-                // console.log("11111",_mid)
                 for(let i = 0; i<teachersInLeft.length;i++){
-                    // console.log(teachersInLeft[0])
-                    // console.log(teachersInLeft[i]==_mid)
                     if(teachersInLeft[i] === parseInt(_mid,10)){
                         result.push(_mid);
-
                     }
                 }
-                console.log(result)
-                return{
-                    ...state,
-                    teachersInLeft:result
-                }
+                newState.leftSearch = result;
+
+                // return newState
+            }else{
+                newState.leftSearch = [];
             }
-            return state;
+            newState.leftIsSearching = true;
+            console.log("newState",newState)
+            return newState;
+        }
+        case ActionTypes.OPEN_RIGHTS_MANAGEMENT:{
+           const newState = { ...state };
+           newState.isShow = true;
+           return newState
+        }
+
+        case ActionTypes.CLOSE_RIGHTS_MANAGEMENT:{
+            const newState = { ...state };
+            newState.isShow = false;
+            return newState
+        }
+        //搜索右边
+        case ActionTypes.SEARCH_TEACHER_NAME_RIGHT:{
+            const mid = action.value;
+            const newState = {...state};
+            if(!mid){
+                newState.rightIsSearching = false;
+                return newState
+            }
+            let _mid =-1;
+            for(let item in newState.teachers) {
+                if (newState.teachers[item].mid === parseInt(mid,10)) {
+                    _mid = item
+                }
+
+            }
+            console.log("qqqq",_mid);
+            if( _mid!==-1) {
+                console.log("qqqq",_mid);
+                const teachersInRight = newState.teachersInRight;
+                console.log("qqqq",newState);
+                let result = [];
+                for(let i in teachersInRight){
+                    if(teachersInRight[i].mid === parseInt(_mid,10)){
+                        result.push(_mid);
+                        console.log("qqqq",_mid);
+                    }
+                }
+                newState.rightSearch = result;
+
+                // return newState
+            }else{
+                newState.rightSearch = [];
+            }
+            newState.rightIsSearching = true;
+            console.log("newState",newState);
+            return newState;
         }
 
         default:

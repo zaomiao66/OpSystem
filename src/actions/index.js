@@ -221,18 +221,53 @@ function addTeachersLeft(mid) {//增加左边的老师
     }
 }
 
-function deleteTeachersLeft(mid) {//减少左边的老师
+function deleteTeachersLeft() {//减少左边的老师
     return{
         type:ActionTypes.DELETE_TEACHER_LEFT,
+
+    }
+
+}
+
+function selectTeachersRight(mid) {//选中右边的老师
+    return{
+        type:ActionTypes.SELECT_TEACHERS_RIGHT,
         mid
     }
 
 }
 
+function selectTeachersLeft(mid) {//选中左边的老师
+    return{
+        type:ActionTypes.SELECT_TEACHERS_LEFT,
+        mid
+    }
+
+}
+
+
 function searchTeacherNameLeft(value) {
     return{
         type:ActionTypes.SEARCH_TEACHER_NAME_LEFT,
         value
+    }
+}
+
+function searchTeacherNameRight(value) {//在右边框中搜索老师的id
+    return{
+        type:ActionTypes.SEARCH_TEACHER_NAME_RIGHT,
+        value
+    }
+}
+function openRightManagement() { //打开权限页面
+    return{
+        type:ActionTypes.OPEN_RIGHTS_MANAGEMENT,
+    }
+}
+
+function closeRightManagement() { //关闭权限页面
+    return{
+        type:ActionTypes.CLOSE_RIGHTS_MANAGEMENT,
     }
 }
 
@@ -255,5 +290,10 @@ export {
     getTeachersLeft,
     addTeachersLeft,
     deleteTeachersLeft,
-    searchTeacherNameLeft
+    searchTeacherNameLeft,
+    selectTeachersRight,
+    selectTeachersLeft,
+    searchTeacherNameRight,
+    openRightManagement,
+    closeRightManagement
 }

@@ -4,36 +4,60 @@ import { Icon,Button,Input,Tree } from  'antd'
 
 
 
-export default class PersonManagement extends Component{
+export default class PersonManagement extends Component {
 
     onSelect = (selectedKeys, info) => {
-        if(selectedKeys < 3)this.props.actions.getTeacherRight(selectedKeys);
-        // console.log('selected', selectedKeys, info);
+      if(selectedKeys>10000)   this.props.actions.getTeacherRight(selectedKeys);
+        console.log('selected', selectedKeys, info);
     };
 
-    searchTeacherNameLeft = (value) =>{
+    searchTeacherNameLeft = (value) => {
         this.props.actions.searchTeacherNameLeft(value);
+        console.log(value)
     };
+
+    searchTeacherNameRight = (value)=>{
+        this.props.actions.searchTeacherNameRight(value);
+        console.log(value)
+    }
+
+
+    getTree =(arr,root) =>{
+        const TreeNode = Tree.TreeNode;
+
+       return  root.map((item)=>{
+            return (<TreeNode title={arr[item].name} key={arr[item].id}>
+                {
+                    arr[item].children? this.getTree(arr,arr[item].children)
+                 :null
+                }
+            </TreeNode>)})
+
+    };
+
+
+
 
     render(){
         const Search = Input.Search;
-        const TreeNode = Tree.TreeNode;
+        // const TreeNode = Tree.TreeNode;
         const { state } = this.props;
-        // console.log(this.props,"111");
-
+        const { _lesson } = this.props.state;
+        console.log(this.props,"111");
+        // const tree = this.getTree(_lesson,[101])
 
 
         return(
-            <div className="PersonManagement">
+            <div style={state.isShow?{}:{display:'none'}} className="PersonManagement">
                 <div className="ReviewHomework_1">
                     <span className="ReviewHomework_left">点评作业：拥有个人点评页，可以为学生进行点评</span>
-                    <Icon  type="close-square" style={{fontSize:20,color:'red',marginRight:100}} />
+                    <Icon onClick={this.props.actions.closeRightManagement} type="close-square" style={{fontSize:20,color:'red',marginRight:100}} />
                 </div>
                 <div className="bodyInPersonManagement">
 
                     <div className="teachersBeAdded">
                         <div className="teachersBeAddedTop">
-                            <Button type="danger">删除</Button>
+                            <Button onClick={this.props.actions.deleteTeachersLeft} type="danger">删除</Button>
                             <Search
                                 placeholder="input search text"
                                 onSearch={value => this.searchTeacherNameLeft(value)}
@@ -45,32 +69,34 @@ export default class PersonManagement extends Component{
                                 <div className="teachersBeAddedBottom">
 
                                 </div>
-                                :<div className="teachersBeAddedBottom">
+                                :<div>
                                     {
-                                        state.teachersInLeft.map((item,idx) =>{
-                                            return  <span key={idx} onClick={() =>{this.props.actions.deleteTeachersLeft(item.mid)}} className="teacherButton">{item.name}mid:{item.mid} </span>
-                                        })
+                                        !state.leftIsSearching?
+                                        <div className="teachersBeAddedBottom">
+                                            {
+                                                state.teachersInLeft.map((item,idx) =>{
+                                                    return  <span key={idx} style={item.isSelectLeft?{ backgroundColor: '#66b2ff' } : {}} onClick={() =>{this.props.actions.selectTeachersLeft(item.mid)}} className="teacherButton">{item.name}mid:{item.mid} </span>
+                                                })
+                                            }
+                                </div>:<div className="teachersBeAddedBottom">
+                                                {
+                                                    state.leftSearch.map((item,idx) =>{
+                                                        return  <span key={idx} style={item.isSelectLeft?{ backgroundColor: '#66b2ff' } : {}} onClick={() =>{this.props.actions.selectTeachersLeft(item.mid)}} className="teacherButton">{item.name}mid:{item.mid} </span>
+                                                    })
+                                                }
+                                            </div>
                                     }
                                 </div>
-
                         }
                     </div>
 
                     <div className="teachersTree">
                         <Tree
                             showLine
-                            defaultExpandedKeys={['0-0-0']}
+                            defaultExpandedKeys={['101']}
                             onSelect={this.onSelect}
                         >
-                            <TreeNode title={state.name} key="3">
-                                <TreeNode title={state.lessonsConstruction[0].classes.name} key="0"/>
-
-                                <TreeNode title={state.lessonsConstruction[1].classes.name} key="1"/>
-
-                                <TreeNode title={state.lessonsConstruction[2].classes.name} key="2"/>
-
-
-                            </TreeNode>
+                            {this.getTree(_lesson,[101])}
                         </Tree>
                     </div>
 
@@ -78,7 +104,7 @@ export default class PersonManagement extends Component{
                     <div className="teachersNotAddTop">
                         <Search
                             placeholder="input search text"
-                            onSearch={value => console.log(value)}
+                            onSearch={value => this.searchTeacherNameRight(value)}
                             enterButton
                         />
                     </div>
@@ -88,21 +114,35 @@ export default class PersonManagement extends Component{
                                 <div className="teachersNotAddBottom">
 
                                 </div>
-                                :<div className="teachersNotAddBottom">
-                                    {
-                                        state.teachersInRight.map((item,idx) =>{
-                                          return  <span key={idx} onClick={() =>{this.props.actions.addTeachersLeft(item.mid)}} className="teacherButton">{item.name}mid:{item.mid} </span>
-                                        })
-                                    }
+                                :<div>{
+                                    !state.rightIsSearching ?
+                                        <div className="teachersNotAddBottom">
+                                            {
+                                                state.teachersInRight.map((item, idx) => {
+                                                    return <span key={idx}
+                                                                 style={item.isSelect ? {backgroundColor: '#66b2ff'} : {}}
+                                                                 onClick={() => {
+                                                                     this.props.actions.selectTeachersRight(item.mid)
+                                                                 }}
+                                                                 className="teacherButton">{item.name}mid:{item.mid} </span>
+                                                })
+                                            }
+                                        </div>:<div className="teachersBeAddedBottom">
+                                            {
+                                                state.rightSearch.map((item,idx) =>{
+                                                    return  <span key={idx} style={item.isSelectLeft?{ backgroundColor: '#66b2ff' } : {}} onClick={() =>{this.props.actions.selectTeachersLeft(item.mid)}} className="teacherButton">{item.name}mid:{item.mid} </span>
+                                                })
+                                            }
+                                        </div>
+                                }
                                 </div>
-
                         }
 
                     </div>
 
 
                 </div>
-                <div></div>
+                <div><span style={{marginLeft:1000}}  onClick={() =>{this.props.actions.addTeachersLeft( )}} className="teacherButton">添加 </span></div>
             </div>
         )
     }
