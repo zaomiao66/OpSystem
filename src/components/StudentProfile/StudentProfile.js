@@ -1,10 +1,11 @@
-import { Button, Input, Table } from 'antd';
+import { Button, Input, Table, Radio } from 'antd';
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import './StudentProfile.css';
 // import {midSearch} from  '../../actions'
 
 const Search = Input.Search;
+const RadioGroup = Radio.Group;
 
 const columns = {
 
@@ -75,6 +76,9 @@ columns ={columns.columns}
               const { actions } = this.props;
               // console.log("state.studentList21212",state)
               return (<div >
+                <RadioGroup>
+                  <Radio value={1}>A</Radio>
+                </RadioGroup>
                           <div className ="box"
                                 >
                                   <div className= "box_left"
